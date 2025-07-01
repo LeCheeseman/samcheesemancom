@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  background-color: #FEF7E0; /* site-wide background */
+  font-family: Helvetica, Arial, sans-serif;
+  color: #000;
+  position: relative; /* if using absolute shapes inside body */
+}
+
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  padding-right: 92px;
+  font-size: larger;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  display: inline-block;
+  height: 2.2em;
+  line-height: 2.2em;
+  transition: transform 0.1s, color 0.2s;
+}
+
+.logo { 
+    margin-left: -10px;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.nav-links a.active {
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: font-size 0.1s, color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+    transform: scale(1.2);
+/* Remove duplicate .nav-links a:hover selector */
+}
+
+/* HERO SECTION */
+
+.hero {
+  padding: 10px 80px;
+  position: relative;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.hero p {
+  font-size: 1.8rem;
+  max-width: 500px;
+  margin: 0 0 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  background: #F4C142;
+  color: #000; /* Black text for good contrast */
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #000;
+}
+
+.button.secondary {
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+}
+
+/* HERO PROFILE SECTION */
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px; /* space between text & image */
+}
+
+.hero-text {
+  flex: 1.5;
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.hero-image img {
+    margin-top: -40px;
+  max-width: 400px; /* or adjust to taste */
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* optional, for style */
+}
+
+/* CLIENTS SECTION */
+
+.clients {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.clients-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.clients h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.client-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.client-logos img {
+  max-height: 40px; /* Adjust logo size */
+  height: auto;
+}
