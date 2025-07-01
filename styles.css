@@ -151,6 +151,23 @@ body {
 }
 
 .client-logos img {
-  max-height: 40px; /* Adjust logo size */
+  max-height: 80px; /* Adjust logo size */
   height: auto;
+}
+
+.client-logos img.visa {
+  max-height: 30px; /* lower than the others */
+}
+
+.client-logos img.bbdo { 
+    max-height: 30px; /* lower than the others */
+}
+
+
+.client-logos img.standardchartered {
+    max-height: 50px;
+}
+
+.client-logos img.mercedes, img.ogilvy, img.hotwheels, img.natgeo {
+    max-height: 50px;
 }
