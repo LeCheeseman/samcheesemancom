@@ -1,11 +1,24 @@
+
+
 body {
   margin: 0;
   background-color: #FEF7E0; /* site-wide background */
-  font-family: Helvetica, Arial, sans-serif;
+    font-family: 'DM sans', serif;
   color: #000;
   position: relative; /* if using absolute shapes inside body */
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+}
+h1 { 
+    font-weight: 700;
+}
+
+p {
+     font-weight: 400;
+     font-family: 'DM Sans', sans-serif;
+}
 
 .navbar-container {
   max-width: 1200px;
@@ -67,8 +80,13 @@ body {
 
 .hero h1 {
   font-size: 3.5rem;
-  line-height: 1.1;
+  font-weight: 700;
   margin: 0 0 20px;
+}
+
+.hero h1 span {
+  display: block;
+  line-height: 1.4;
 }
 
 .hero p {
@@ -146,8 +164,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 40px;
+  margin-bottom: 40px;
 }
 
 .client-logos img {
@@ -170,4 +188,179 @@ body {
 
 .client-logos img.mercedes, img.ogilvy, img.hotwheels, img.natgeo {
     max-height: 50px;
+}
+
+/* CLIENTS SECTION END */
+
+/* SERVICES SECTION */
+
+.services {
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+}
+
+.service-cards {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 20px;
+  padding: 40px 20px;
+  flex: 1;
+  max-width: 290px;
+  position: relative;
+}
+
+.service-card img {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.service-card p {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Shadows to mimic side colour accent */
+.service-card.blue::after,
+.service-card.yellow::after,
+.service-card.red::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.service-card.blue::after {
+  background: #3454D1; /* pick your exact blue */
+}
+
+.service-card.yellow::after {
+  background: #F4C142; /* pick your exact yellow */
+}
+
+.service-card.red::after {
+  background: #D33F49; /* pick your exact red */
+}
+
+.service-card img {
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+/* FEATURED WORK SECTION */
+.featured-work {
+  padding: 100px 0;
+  background: #fff;
+  text-align: center;
+}
+
+.featured-work h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.watch-button {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #F4C142; /* match your earlier hero button */
+  color: #000;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+  border: 2px solid #000; /* match earlier buttons */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #F4C142; /* your yellow */
+  border: none;
+  border-radius: 50%; /* makes it round */
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background: #e0b932; /* slight darken on hover */
+}
+
+.carousel-btn.prev {
+  left: 20px; /* left side */
+}
+
+.carousel-btn.next {
+  right: 20px; /* right side */
+}
+
+.carousel-btn img {
+  width: 24px;
+  height: 24px;
 }
