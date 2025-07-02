@@ -195,7 +195,7 @@ p {
 /* SERVICES SECTION */
 
 .services {
-  padding: 100px 40px;
+  padding: 20px 40px;
   text-align: center;
 }
 
@@ -293,6 +293,14 @@ p {
   font-weight: 400;
   font-size: 2.5rem;
   margin-bottom: 40px;
+}
+
+.featured-work h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: #555;  
+    margin-bottom: 40px;
 }
 
 .carousel {
@@ -451,4 +459,66 @@ p {
 .carousel-dots .dot.active {
   opacity: 1;
   background: #A67C00;
+}
+
+/* RTBs */
+.rtbs {
+  padding: 100px 40px;
+}
+
+.rtb-box {
+  max-width: 400px;
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 20px;
+  padding: 60px;
+  position: relative;
+}
+
+.rtb-box::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 100%;
+  height: 100%;
+  background: #F4C142; /* yellow shadow */
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.rtb-box h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.rtb-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rtb-box li {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* tidy spacing */
+}
+
+.rtb-box li .check {
+  width: 24px;
+  height: 24px;
+  background: #0B4DFF; /* blue tick circle */
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  background: #134DFF; /* your blue */
+  border-radius: 50%;
+  flex-shrink: 0;
 }
