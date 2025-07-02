@@ -282,8 +282,9 @@ p {
 
 /* FEATURED WORK SECTION */
 .featured-work {
-  padding: 100px 0;
-  background: #fff;
+    margin-top: 100px;
+  padding: 0;
+  background: transparent;
   text-align: center;
 }
 
@@ -312,13 +313,12 @@ p {
 
 .carousel-item img {
   width: 100%;
-  height: auto;
   display: block;
 }
 
 .watch-button {
   position: absolute;
-  bottom: 40px;
+  bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
   background: #F4C142; /* match your earlier hero button */
@@ -348,19 +348,107 @@ p {
   transition: background 0.2s ease;
 }
 
+
 .carousel-btn:hover {
-  background: #e0b932; /* slight darken on hover */
+  background: #e0b932;
 }
 
 .carousel-btn.prev {
-  left: 20px; /* left side */
+  left: 20px; 
 }
 
 .carousel-btn.next {
-  right: 20px; /* right side */
+  right: 20px; 
 }
 
 .carousel-btn img {
   width: 24px;
   height: 24px;
+}
+
+/* Featured Work Info + Buttons */
+
+.carousel-info {
+  display: flex;
+  justify-content: center; /* ← this centres the whole info block horizontally */
+  align-items: center;
+  max-width: 1200px;
+  margin: -60px auto;
+  padding: 0 40px;
+  text-align: left; /* keep left so title lines don't centre */
+}
+
+.info-left {
+  display: flex;
+  align-items: center;    /* centre horizontally */
+  gap: 40px;              /* gap between title and dots */
+}
+
+.title-block {
+    display: flex;
+    flex-direction:column;
+}
+
+.title-block h3 {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.title-block p {
+  margin: 5px 0 0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: #555;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #F4C142;
+  opacity: 0.5;
+}
+
+.carousel-dots .dot.active {
+  opacity: 1;
+  background: #A67C00;
+}
+
+.title-block h3 {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.title-block p {
+  margin: 5px 0 0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: #555;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #F4C142;
+  opacity: 0.5;
+}
+
+.carousel-dots .dot.active {
+  opacity: 1;
+  background: #A67C00;
 }
