@@ -464,47 +464,43 @@ p {
 /* RTBs */
 
 /* === RTB SECTION === */
+/* === RTB CONTAINER === */
 
+/* === RTB Container === */
+
+
+/* === CONTAINER === */
 .rtb-container {
-  max-width: 1200px;
-  margin: 150px auto; /* pushes whole section down nicely */
   display: flex;
-  justify-content: space-between; /* keeps boxes side by side */
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 200px;
+  gap: 60px;
   align-items: flex-start;
-  gap: 80px; /* big gap between left and right */
 }
 
-.RTBs {
-  padding: 150px 40px 100px;
+/* === LEFT === */
+.rtb-left {
+  flex: 0 0 40%;
+  position: relative;
 }
 
+.rtb-shadow {
+  background: #F4C142;
+  border-radius: 20px;
+  padding: 20px;
+}
 
 .rtb-box {
-  max-width: 350px; /* controls box width */
-  margin: 0 auto;
   background: #fff;
   border: 4px solid #000;
   border-radius: 20px;
   padding: 60px;
-  position: relative;
-}
-
-.rtb-box::after {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background: #F4C142; /* yellow shadow */
-  z-index: -1;
 }
 
 .rtb-box h2 {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
   font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 40px;
 }
 
@@ -512,58 +508,49 @@ p {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 1.2rem;
 }
 
 .rtb-box li {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   position: relative;
-  padding-left: 40px; /* space for tick circle */
+  padding-left: 40px;
 }
 
 .rtb-box li::before {
-  content: "✔"; /* Unicode tick */
+  content: "✔";
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
-  background: #3454D1; /* blue circle */
+  background: #3454D1;
   color: #fff;
-  font-size: 14px;
-  line-height: 24px;
   text-align: center;
+  line-height: 24px;
   border-radius: 50%;
+  font-size: 14px;
 }
 
-.rtb-left {
-    flex: 1;
-}
-
-/* Container for all testimonials */
+/* === RIGHT === */
 .rtb-right {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 40px; /* space between the testimonial cards */
 }
-
 
 .rtb-right h2 {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  font-size: 2.2rem;
-  margin-bottom: 30px;
+  font-size: 2rem;
+  margin-bottom: 40px;
+ 
 }
-/* Each testimonial card */
 
 .testimonial {
   position: relative;
-  border: 4px solid #000;
   background: #fff;
-  width: 100%;
-  max-width: 420px; /* narrower than before for a rectangular feel */
+  border: 4px solid #000;
+  margin-bottom: 40px;
+  max-width: 450px;
 }
 
 .testimonial::after {
@@ -573,28 +560,23 @@ p {
   right: -10px;
   width: 100%;
   height: 100%;
-  background: #134D42; /* teal shadow */
+  background: #134D42;
   z-index: -1;
 }
 
 .testimonial-inner {
   background: #F4C142;
-  padding: 50px; /* bigger padding for rectangular box shape */
+  padding: 40px;
 }
 
-.rtb-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.rtb-right .testimonial:nth-of-type(1) {
+  margin-left: 100px;
 }
 
 .rtb-right .testimonial:nth-of-type(2) {
-  position: relative;
-  left: 40px;
+  margin-left: 250px;
 }
 
 .rtb-right .testimonial:nth-of-type(3) {
-  position: relative;
-  left: -20px;
+  margin-left: 100px;
 }
