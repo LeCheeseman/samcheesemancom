@@ -4,45 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;400;500;700&family=DM+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Sam Cheeseman - Freelance Creative Director</title>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'dm-sans': ['DM Sans', 'sans-serif'],
+                        'dm-mono': ['DM Mono', 'monospace']
+                    },
+                    colors: {
+                        'cream': '#FEF7E0',
+                        'navy': '#2B2D42'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <header>
-  <nav class="navbar">
-  <div class="navbar-container">
-    <div class="logo">
-      <a href="#"><img src="images/Logo.svg" alt="Logo"></a>
-    </div>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-  </nav>
+<body class="bg-cream font-dm-sans">
+  <!-- Header -->
+  <header class="w-full">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center justify-between py-6">
+        <!-- Left Navigation Links -->
+        <div class="flex items-center space-x-8">
+          <a href="#" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Work</a>
+          <a href="#" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">About</a>
+        </div>
+        
+        <!-- Centered Logo -->
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+          <a href="#" class="text-2xl font-bold">
+            <span class="text-gray-900">sam</span>
+            <span class="text-blue-600">cheese</span><span class="text-yellow-400">man</span>
+          </a>
+        </div>
+        
+        <!-- Right Contact Button -->
+        <div>
+          <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors duration-200">Contact</a>
+        </div>
+      </div>
+      
+      <!-- Mobile Navigation -->
+      <div class="md:hidden py-4">
+        <!-- Logo -->
+        <div class="text-center mb-4">
+          <a href="#" class="text-2xl font-bold">
+            <span class="text-gray-900">sam</span>
+            <span class="text-blue-600">cheese</span><span class="text-yellow-400">man</span>
+          </a>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="flex justify-center space-x-8 mb-4">
+          <a href="#" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Work</a>
+          <a href="#" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">About</a>
+        </div>
+        
+        <!-- Contact Button -->
+        <div class="text-center">
+          <a href="#" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors duration-200">Contact</a>
+        </div>
+      </div>
+    </nav>
   </header>
-  <section class="hero">
-  <div class="hero-container">
-    <div class="hero-text">
-      <h1>
-      <h1>
-  <span>Big Ideas.</span>
-  <span>Sharp Copy.</span>
-  <span>Seamless Growth.</span>
-</h1>
-</h1>
-      <p>Hi, I’m Sam. I specialise in world-class scripts, social retainers, manifestos and concept creation.</p>
-      <div class="hero-buttons">
-        <a href="#" class="button">Contact Me</a>
-        <a href="#" class="button secondary">See Work</a>
+
+  <!-- Featured Works Section -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Title -->
+    <div class="text-center mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Featured Works</h1>
+      
+      <!-- Description -->
+      <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+        A showcase of our finest creations—where creativity meets impact. From bold branding to immersive digital experiences, each project reflects our passion for design and innovation. Explore how we bring ideas to life through thoughtful execution and striking visuals.
+      </p>
+      
+      <!-- Toggle Switch -->
+      <div class="flex items-center justify-center space-x-4">
+        <span class="text-gray-700 font-medium">Commercials</span>
+        
+        <!-- Toggle Switch Component -->
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" value="" class="sr-only peer" id="workToggle">
+          <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-gray-800"></div>
+        </label>
+        
+        <span class="text-gray-700 font-medium">Copywriting</span>
       </div>
     </div>
-    <div class="hero-image">
-         <img src="images/Profile Image/image_illo.svg" alt="" class="images/Profile Image/hero-illo.svg">
-    </div>
-  </div>
-</section>
+  </main>
+
 <section class="clients">
   <div class="clients-container">
     <h2>My clients are worldwide</h2>
