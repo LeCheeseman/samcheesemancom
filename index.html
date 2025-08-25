@@ -5,14 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;400;500;700&family=DM+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Sam Cheeseman - Freelance Creative Director</title>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'dm-sans': ['DM Sans', 'sans-serif'],
+                        'dm-mono': ['DM Mono', 'monospace']
+                    },
+                    colors: {
+                        'cream': '#FEF7E0',
+                        'yellow-brand': '#F4C142',
+                        'blue-brand': '#3454D1',
+                        'red-brand': '#D33F49'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Enhanced sizing to better match mockup */
+        .hero h1 {
+            font-size: 4.5rem !important; /* Increased from 3.5rem */
+        }
+        
+        .hero p {
+            font-size: 2.2rem !important; /* Increased from 1.8rem */
+            line-height: 1.4;
+            max-width: none !important; /* Remove width restriction */
+            width: 100% !important; /* Make it same width as heading */
+        }
+        
+        .button {
+            padding: 20px 40px !important; /* Increased from 15px 30px */
+            font-size: 1.2rem !important;
+        }
+        
+        .hero {
+            padding: 40px 80px !important; /* Increased from 10px 80px */
+        }
+        
+        /* Make hero image 1.25x bigger */
+        .hero-image img {
+            max-width: 500px !important; /* 1.25x of 400px */
+            transform: scale(1.25) !important;
+            transform-origin: center !important;
+        }
+        
+        .clients h2 {
+            font-size: 2.8rem !important;
+            margin-bottom: 50px !important;
+        }
+        
+        .services h2 {
+            font-size: 2.8rem !important;
+        }
+        
+        .service-card h3 {
+            font-size: 1.6rem !important;
+        }
+        
+        .service-card p {
+            font-size: 1.1rem !important;
+        }
+        
+        .featured-work h2 {
+            font-size: 2.8rem !important;
+            text-align: center !important;
+        }
+        
+        .featured-work h3 {
+            font-size: 1.4rem !important;
+            text-align: center !important;
+        }
+        
+        .featured-work {
+            text-align: center !important;
+            margin: 80px auto !important;
+            width: 100% !important;
+            max-width: 1400px !important;
+            padding: 0 80px !important;
+            display: block !important;
+        }
+        
+        /* Add more spacing between major sections */
+        .clients, .services, .rtbs {
+            margin: 80px 0 !important;
+        }
+        
+        /* Make testimonials text 1.5x bigger */
+        .testimonial p,
+        .testimonial-inner p {
+            font-size: 1.5rem !important;
+            line-height: 1.4 !important;
+        }
+        
+        /* Make page content much wider */
+        .navbar-container,
+        .hero-container,
+        .clients-container,
+        .services-container,
+        .featured-work,
+        .rtb-container {
+            max-width: 1400px !important;
+        }
+        
+        /* Header alignment: match hero padding and remove inner container padding */
+        .navbar { padding: 0 80px !important; }
+        .navbar-container { padding-left: 0 !important; padding-right: 0 !important; }
+        
+        /* Fix navbar logo and text sizing - MAKE IT BIG */
+        .logo {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+        }
+        
+        .logo img {
+            height: 225px !important;
+            width: auto !important;
+            margin-left: -22px !important; /* fine-tune visual alignment with hero text */
+        }
+        
+        .nav-links {
+            font-size: larger !important; /* Ensure navbar text stays large */
+        }
+        
+        .nav-links a {
+            font-size: 1.6rem !important;
+            font-weight: 500 !important;
+        }
+        
+        /* Make footer logos MUCH larger */
+        footer img[alt="Sam Cheeseman Logo"] {
+            height: 120px !important;
+            width: auto !important;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem !important;
+            }
+            
+            .hero p {
+                font-size: 1.6rem !important;
+            }
+            
+            .hero {
+                padding: 20px 40px !important;
+            }
+        }
+    </style>
 </head>
 <body>
   <header>
   <nav class="navbar">
   <div class="navbar-container">
     <div class="logo">
-      <a href="#"><img src="images/Logo.svg" alt="Logo"></a>
+      <!-- LOCKED: standard header logo size -->
+      <a href="#"><img src="images/logo.svg" alt="Logo" class="logo-header"></a>
+      <!-- /LOCKED -->
     </div>
     <div class="nav-links">
       <a href="#">Home</a>
@@ -191,6 +344,108 @@
 </section>
 
 </section>
+
+  <!-- Footer -->
+  <footer class="bg-cream py-12 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Desktop Layout -->
+      <div class="hidden md:flex items-center justify-between mb-8">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/">
+            <!-- LOCKED: standard footer logo size -->
+            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-footer">
+            <!-- /LOCKED -->
+          </a>
+        </div>
+        
+        <!-- Newsletter Form -->
+        <div class="flex-1 max-w-md mx-8">
+          <form class="flex">
+            <input 
+              type="email" 
+              placeholder="Get your project launched" 
+              class="flex-1 px-4 py-2 border-2 border-gray-900 rounded-l-full bg-transparent focus:outline-none focus:ring-0 font-dm-sans text-gray-900 placeholder-gray-600" 
+              required
+            >
+            <button 
+              type="submit" 
+              class="px-6 py-2 bg-gray-900 border-2 border-gray-900 rounded-r-full hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center" 
+              aria-label="Submit newsletter signup"
+            >
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+        
+        <!-- Navigation Links -->
+        <nav class="flex items-center space-x-8">
+          <a href="/" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Home</a>
+          <a href="/portfolio.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Portfolio</a>
+          <a href="/contact.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Contact</a>
+        </nav>
+      </div>
+      
+      <!-- Mobile Layout -->
+      <div class="md:hidden space-y-8">
+        <!-- Logo -->
+        <div class="text-center">
+          <a href="/">
+            <!-- LOCKED: standard footer logo size -->
+            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-footer mx-auto">
+            <!-- /LOCKED -->
+          </a>
+        </div>
+        
+        <!-- Newsletter Form -->
+        <div class="max-w-sm mx-auto">
+          <form class="flex">
+            <input 
+              type="email" 
+              placeholder="Get your project launched" 
+              class="flex-1 px-4 py-2 border-2 border-gray-900 rounded-l-full bg-transparent focus:outline-none focus:ring-0 font-dm-sans text-gray-900 placeholder-gray-600 text-sm" 
+              required
+            >
+            <button 
+              type="submit" 
+              class="px-4 py-2 bg-gray-900 border-2 border-gray-900 rounded-r-full hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center" 
+              aria-label="Submit newsletter signup"
+            >
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+        
+        <!-- Navigation Links -->
+        <nav class="flex justify-center space-x-8">
+          <a href="/" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Home</a>
+          <a href="/portfolio.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Portfolio</a>
+          <a href="/contact.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Contact</a>
+        </nav>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between pt-8 border-t border-gray-200 space-y-4 md:space-y-0">
+        <!-- Legal Links -->
+        <div class="flex justify-center md:justify-start space-x-6 text-sm">
+          <a href="/terms" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Terms and Conditions</a>
+          <span class="text-gray-400">•</span>
+          <a href="/privacy" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Privacy Policy</a>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="text-center md:text-right">
+          <p class="text-sm text-gray-600">© 2025 Sam Cheeseman. Copyright and rights reserved</p>
+        </div>
+      </div>
+      
+    </div>
+  </footer>
 
 </body>
     <script src="script.js"></script>
