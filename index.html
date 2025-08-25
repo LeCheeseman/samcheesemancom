@@ -5,161 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;400;500;700&family=DM+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>Sam Cheeseman - Freelance Creative Director</title>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'dm-sans': ['DM Sans', 'sans-serif'],
-                        'dm-mono': ['DM Mono', 'monospace']
-                    },
-                    colors: {
-                        'cream': '#FEF7E0',
-                        'yellow-brand': '#F4C142',
-                        'blue-brand': '#3454D1',
-                        'red-brand': '#D33F49'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Enhanced sizing to better match mockup */
-        .hero h1 {
-            font-size: 4.5rem !important; /* Increased from 3.5rem */
-        }
-        
-        .hero p {
-            font-size: 2.2rem !important; /* Increased from 1.8rem */
-            line-height: 1.4;
-            max-width: none !important; /* Remove width restriction */
-            width: 100% !important; /* Make it same width as heading */
-        }
-        
-        .button {
-            padding: 20px 40px !important; /* Increased from 15px 30px */
-            font-size: 1.2rem !important;
-        }
-        
-        .hero {
-            padding: 40px 80px !important; /* Increased from 10px 80px */
-        }
-        
-        /* Make hero image 1.25x bigger */
-        .hero-image img {
-            max-width: 500px !important; /* 1.25x of 400px */
-            transform: scale(1.25) !important;
-            transform-origin: center !important;
-        }
-        
-        .clients h2 {
-            font-size: 2.8rem !important;
-            margin-bottom: 50px !important;
-        }
-        
-        .services h2 {
-            font-size: 2.8rem !important;
-        }
-        
-        .service-card h3 {
-            font-size: 1.6rem !important;
-        }
-        
-        .service-card p {
-            font-size: 1.1rem !important;
-        }
-        
-        .featured-work h2 {
-            font-size: 2.8rem !important;
-            text-align: center !important;
-        }
-        
-        .featured-work h3 {
-            font-size: 1.4rem !important;
-            text-align: center !important;
-        }
-        
-        .featured-work {
-            text-align: center !important;
-            margin: 80px auto !important;
-            width: 100% !important;
-            max-width: 1400px !important;
-            padding: 0 80px !important;
-            display: block !important;
-        }
-        
-        /* Add more spacing between major sections */
-        .clients, .services, .rtbs {
-            margin: 80px 0 !important;
-        }
-        
-        /* Make testimonials text 1.5x bigger */
-        .testimonial p,
-        .testimonial-inner p {
-            font-size: 1.5rem !important;
-            line-height: 1.4 !important;
-        }
-        
-        /* Make page content much wider */
-        .navbar-container,
-        .hero-container,
-        .clients-container,
-        .featured-work {
-            max-width: 1400px !important;
-        }
-        
-        /* Header alignment: match hero padding and remove inner container padding */
-        .navbar { padding: 0 80px !important; }
-        .navbar-container { padding-left: 0 !important; padding-right: 0 !important; }
-        
-        /* Fix navbar logo and text sizing - MAKE IT BIG */
-        .logo {
-            margin-left: 0 !important;
-            padding-left: 0 !important;
-        }
-        
-
-        
-        .nav-links {
-            font-size: larger !important; /* Ensure navbar text stays large */
-        }
-        
-        .nav-links a {
-            font-size: 1.6rem !important;
-            font-weight: 500 !important;
-        }
-        
-        /* Make footer logos MUCH larger */
-        footer img[alt="Sam Cheeseman Logo"] {
-            height: 120px !important;
-            width: auto !important;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem !important;
-            }
-            
-            .hero p {
-                font-size: 1.6rem !important;
-            }
-            
-            .hero {
-                padding: 20px 40px !important;
-            }
-        }
-    </style>
 </head>
 <body>
   <header>
   <nav class="navbar">
   <div class="navbar-container">
     <div class="logo">
-      <!-- LOCKED: standard header logo size -->
-      <a href="#"><img src="images/logo.svg" alt="Logo" class="logo-header"></a>
-      <!-- /LOCKED -->
+      <a href="#"><img src="images/Logo.svg" alt="Logo"></a>
     </div>
     <div class="nav-links">
       <a href="#">Home</a>
@@ -226,26 +79,27 @@
   </div>
 </section>
 
-   <section class="services mx-auto max-w-screen-xl px-4">
+   <section class="services">
+  <div class="services-container">
     <h2>How I support my clients all over the world</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      <div class="p-6 rounded-2xl shadow-sm border bg-white h-full service-card blue">
+    <div class="service-cards">
+      <div class="service-card blue">
         <img src="images/carousel illustrations/icon_1.svg" alt="Product Launch Illustration">
         <h3>Product Launch Strategy & Execution</h3>
-        <p>I'll craft a winning strategy and big idea for your product launch, develop all assets, and manage design to ensure a seamless and impactful debut.</p>
+        <p>I’ll craft a winning strategy and big idea for your product launch, develop all assets, and manage design to ensure a seamless and impactful debut.</p>
       </div>
-      <div class="p-6 rounded-2xl shadow-sm border bg-white h-full service-card yellow">
+      <div class="service-card yellow">
         <img src="images/carousel illustrations/icon_2.svg" alt="Omni-Channel Growth Illustration">
         <h3>Omni-Channel Growth</h3>
-        <p>I'll grow your company across all channels, mastering every detail while ensuring every effort aligns with your overarching brand vision and big idea.</p>
+        <p>I’ll grow your company across all channels, mastering every detail while ensuring every effort aligns with your overarching brand vision and big idea.</p>
       </div>
-      <div class="p-6 rounded-2xl shadow-sm border bg-white h-full service-card red">
+      <div class="service-card red">
         <img src="images/carousel illustrations/icon_3.svg" alt="Brand Audit Illustration">
         <h3>Brand Audit & Marketing Upgrade</h3>
-        <p>Through a comprehensive brand audit, I'll redefine your existing marketing materials to better resonate with your audience and elevate your brand's appeal.</p>
+        <p>Through a comprehensive brand audit, I’ll redefine your existing marketing materials to better resonate with your audience and elevate your brand’s appeal.</p>
       </div>
     </div>
-  </section><section class="featured-work">
+  </div><section class="featured-work">
   <h2>Featured Work</h2>
   <h3>Whether it's developing an unforgettable campaign, penning a striking script, or adding spark to your pitch: I'll provide the top-tier creative your project deserves.</h3>
   <div class="carousel">
@@ -295,137 +149,48 @@
 </section>
 
 <section class="rtbs">
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-screen-xl mx-auto px-4">
-    <div class="lg:col-span-2 p-8 md:p-10 rounded-2xl shadow-sm border bg-white min-h-[420px]">
-      <h2 class="text-xl md:text-2xl font-semibold mb-4">Why You Can Count On Me</h2>
-      <ul class="text-base md:text-lg leading-relaxed space-y-3">
-        <li>Over a decade in marketing & advertising.</li>
-        <li>Created multiple award–winning campaigns for the world's biggest brands.</li>
-        <li>4A agency background</li>
-        <li>Worked both agency and client–side</li>
-        <li>Selected from the top 1% of creatives for BBDO's <em>Rising Stars</em> program.</li>
-      </ul>
+ <section class="rtbs">
+  <div class="rtb-container">
+    <div class="rtb-left">
+      <div class="rtb-shadow">
+        <div class="rtb-box">
+          <h2>Why You Can Count On Me</h2>
+          <ul>
+            <li>Over a decade in marketing & advertising.</li>
+            <li>Created multiple award–winning campaigns for the world’s biggest brands.</li>
+            <li>4A agency background</li>
+            <li>Worked both agency and client–side</li>
+            <li>Selected from the top 1% of creatives for BBDO's <em>Rising Stars</em> program.</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="space-y-6">
-      <h2 class="text-xl md:text-2xl font-semibold">Nice things people are saying</h2>
+    <div class="rtb-right">
+      <h2>Nice things people are saying</h2>
 
-      <div class="testimonial p-6 rounded-2xl shadow-sm border bg-white">
-        <p class="text-base md:text-lg leading-relaxed">They've grown our presence across all channels seamlessly, always staying true to our brand's voice and vision.</p>
+      <div class="testimonial">
+        <div class="testimonial-inner">
+          <p>They’ve grown our presence across all channels seamlessly, always staying true to our brand’s voice and vision.</p>
+        </div>
       </div>
 
-      <div class="testimonial p-6 rounded-2xl shadow-sm border bg-white">
-        <p class="text-base md:text-lg leading-relaxed">From big ideas to tiny details, they manage everything flawlessly. Our launch was nothing short of spectacular!</p>
+      <div class="testimonial">
+        <div class="testimonial-inner">
+          <p>From big ideas to tiny details, they manage everything flawlessly. Our launch was nothing short of spectacular!</p>
+        </div>
       </div>
 
-      <div class="testimonial p-6 rounded-2xl shadow-sm border bg-white">
-        <p class="text-base md:text-lg leading-relaxed">The copy they wrote wasn't just words — it was a strategy that drove results.</p>
+      <div class="testimonial">
+        <div class="testimonial-inner">
+          <p>The copy they wrote wasn’t just words — it was a strategy that drove results.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-  <!-- Footer -->
-  <footer class="bg-cream py-12 border-t border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Desktop Layout -->
-      <div class="hidden md:flex items-center justify-between mb-8">
-        <!-- Logo -->
-        <div class="flex-shrink-0">
-          <a href="/">
-            <!-- LOCKED: standard footer logo size -->
-            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-footer">
-            <!-- /LOCKED -->
-          </a>
-        </div>
-        
-        <!-- Newsletter Form -->
-        <div class="flex-1 max-w-md mx-8">
-          <form class="flex">
-            <input 
-              type="email" 
-              placeholder="Get your project launched" 
-              class="flex-1 px-4 py-2 border-2 border-gray-900 rounded-l-full bg-transparent focus:outline-none focus:ring-0 font-dm-sans text-gray-900 placeholder-gray-600" 
-              required
-            >
-            <button 
-              type="submit" 
-              class="px-6 py-2 bg-gray-900 border-2 border-gray-900 rounded-r-full hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center" 
-              aria-label="Submit newsletter signup"
-            >
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </button>
-          </form>
-        </div>
-        
-        <!-- Navigation Links -->
-        <nav class="flex items-center space-x-8">
-          <a href="/" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Home</a>
-          <a href="/portfolio.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Portfolio</a>
-          <a href="/contact.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Contact</a>
-        </nav>
-      </div>
-      
-      <!-- Mobile Layout -->
-      <div class="md:hidden space-y-8">
-        <!-- Logo -->
-        <div class="text-center">
-          <a href="/">
-            <!-- LOCKED: standard footer logo size -->
-            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-footer mx-auto">
-            <!-- /LOCKED -->
-          </a>
-        </div>
-        
-        <!-- Newsletter Form -->
-        <div class="max-w-sm mx-auto">
-          <form class="flex">
-            <input 
-              type="email" 
-              placeholder="Get your project launched" 
-              class="flex-1 px-4 py-2 border-2 border-gray-900 rounded-l-full bg-transparent focus:outline-none focus:ring-0 font-dm-sans text-gray-900 placeholder-gray-600 text-sm" 
-              required
-            >
-            <button 
-              type="submit" 
-              class="px-4 py-2 bg-gray-900 border-2 border-gray-900 rounded-r-full hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center" 
-              aria-label="Submit newsletter signup"
-            >
-              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </button>
-          </form>
-        </div>
-        
-        <!-- Navigation Links -->
-        <nav class="flex justify-center space-x-8">
-          <a href="/" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Home</a>
-          <a href="/portfolio.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Portfolio</a>
-          <a href="/contact.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Contact</a>
-        </nav>
-      </div>
-      
-      <!-- Footer Bottom -->
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between pt-8 border-t border-gray-200 space-y-4 md:space-y-0">
-        <!-- Legal Links -->
-        <div class="flex justify-center md:justify-start space-x-6 text-sm">
-          <a href="/terms" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Terms and Conditions</a>
-          <span class="text-gray-400">•</span>
-          <a href="/privacy" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Privacy Policy</a>
-        </div>
-        
-        <!-- Copyright -->
-        <div class="text-center md:text-right">
-          <p class="text-sm text-gray-600">© 2025 Sam Cheeseman. Copyright and rights reserved</p>
-        </div>
-      </div>
-      
-    </div>
-  </footer>
+</section>
 
 </body>
     <script src="script.js"></script>
