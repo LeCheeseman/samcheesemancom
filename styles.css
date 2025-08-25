@@ -1,4 +1,17 @@
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .logo-header {
+    @apply h-12 md:h-16;
+  }
+  
+  .logo-footer {
+    @apply h-12;
+  }
+}
 
 body {
   margin: 0;
