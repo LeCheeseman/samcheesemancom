@@ -221,7 +221,7 @@ p {
 
 .clients h2 {
   font-size: 2rem;
-  margin-bottom: 48px;
+  margin-bottom: 80px;
 }
 
 .client-logos {
@@ -1039,4 +1039,48 @@ body{ font-family: system-ui, -apple-system, Segoe UI, Roboto, "DM Sans", Arial,
 }
 @media (min-width:768px){
 .fw-grid{ grid-template-columns: repeat(3, 1fr); gap:32px; }
+}
+
+/* CLIENT LOGO ANIMATION */
+
+/* Clients: animated logos (2× pop) */
+.client-logos { overflow: visible; }
+
+.client-logos img {
+  opacity: 1;
+  transform: none;
+  transform-origin: center;
+  position: relative;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* active frames */
+.client-logos img.wiggle-cw {
+  z-index: 5;
+  animation: logoWiggleCW 900ms ease-in-out;
+}
+.client-logos img.wiggle-ccw {
+  z-index: 5;
+  animation: logoWiggleCCW 900ms ease-in-out;
+}
+
+@keyframes logoWiggleCW {
+  0%   { transform: none; }
+  35%  { transform: scale(2) rotate(4deg); }
+  65%  { transform: scale(2) rotate(8deg); }
+  100% { transform: none; }
+}
+@keyframes logoWiggleCCW {
+  0%   { transform: none; }
+  35%  { transform: scale(2) rotate(-4deg); }
+  65%  { transform: scale(2) rotate(-8deg); }
+  100% { transform: none; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .client-logos img { transition: none; }
+  .client-logos img.wiggle-cw,
+  .client-logos img.wiggle-ccw { animation: none !important; }
 }
