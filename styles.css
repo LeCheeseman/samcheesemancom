@@ -199,8 +199,9 @@ p {
 }
 
 .hero-image img {
-    margin-top: -40px;
-  max-width: 400px; /* or adjust to taste */
+  margin-top: -40px;
+  max-width: 526px; /* or adjust to taste */
+  height: 574.84px;
   width: 100%;
   height: auto;
   border-radius: 8px; /* optional, for style */
@@ -548,7 +549,7 @@ p {
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 80px;
   gap: 60px;
   align-items: flex-start;
 }
@@ -999,5 +1000,43 @@ footer {
   }
 }
 
-/* DELETE ME */
+/* FEATURED WORK */
+:root{ --container:1200px; --pad:80px; }
+body{ font-family: system-ui, -apple-system, Segoe UI, Roboto, "DM Sans", Arial, sans-serif; background:#FEF7E0; margin:0; color:#000; }
+.button{ background:#F4C142; border:2px solid #000; color:#000; font-weight:700; text-decoration:none; padding:12px 20px; border-radius:30px; display:inline-block; }
+.button.secondary{ background:transparent; }
 
+
+/* Featured Work */
+.featured-work{ padding: 40px 0 80px; }
+.fw-container{ max-width: var(--container); margin:0 auto; padding:0 var(--pad); }
+.fw-container h2{ font-weight:400; font-size:2.5rem; margin:80px 0 62px; }
+
+
+/* Featured hero case */
+.fw-feature{ display:grid; grid-template-columns: 1.3fr 1fr; gap:40px; align-items:center; margin-bottom:40px; }
+.fw-media{ display:block; position:relative; border:4px solid #000; border-radius:20px; overflow:hidden; background:#ddd; }
+.fw-media::before{ content:""; display:block; aspect-ratio:16/9; }
+.fw-media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.fw-meta h3{ font-weight:700; font-size:2rem; margin:0 0 16px; }
+.fw-meta p{ margin:0 0 16px; }
+
+
+/* 3-up grid */
+.fw-grid{ display:grid; grid-template-columns:1fr; gap:24px; }
+.fw-card{ border:4px solid #000; border-radius:20px; padding:16px; background:#fff; }
+.fw-card .fw-media{ border:0; border-radius:12px; }
+.fw-card h4{ margin:12px 0 4px; font-weight:700; font-size:1.25rem; }
+.fw-card p{ margin:0 0 12px; }
+
+
+.fw-more{ text-align:center; margin-top:24px; }
+
+
+@media (max-width: 1024px){
+:root{ --pad:40px; }
+.fw-feature{ grid-template-columns: 1fr; }
+}
+@media (min-width:768px){
+.fw-grid{ grid-template-columns: repeat(3, 1fr); gap:32px; }
+}
