@@ -8,16 +8,53 @@ body {
   position: relative; /* if using absolute shapes inside body */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   font-family: 'DM Sans', sans-serif;
 }
 h1 { 
-    font-weight: 700;
+    font-weight: 700; 
+    font-style: bold;
+    font-size: 62px;
+}
+
+h2 {
+
+  font-weight: 700;
+  font-style: bold;
+  font-size: 44px;
+
+}
+
+h3 {
+  font-weight: 700;
+  font-style: bold;
+  font-size: 28px
+}
+
+h4{
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;             /* not 'regular' */
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.3;
+  color: #111;                    /* softer than pure black */
+  font-variation-settings: "wght" 400;
+  font-synthesis-weight: none;    /* prevent faux bold */
+  font-optical-sizing: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #676767;
 }
 
 p {
+     font-style: regular;
      font-weight: 400;
-     font-family: 'DM Sans', sans-serif;
+     font-size: 28px;
+;
+
+
+
+
 }
 
 .navbar-container {
@@ -90,20 +127,30 @@ p {
 }
 
 .hero h1 {
-  font-size: 4.2rem;
+  font-size: 62px;
   font-weight: 700;
+  font-style: bold;
   margin: 0 0 20px;
 }
 
 .hero h1 span {
+  max-width: 546px;
+  max-height: 243px;
   display: block;
   line-height: 1.4;
 }
 
 .hero p {
-  font-size: 1.8rem;
-  max-width: 500px;
-  margin: 0 0 40px;
+  font-family: 'DM Sans', sans-serif;
+  max-width: 546px;
+  max-height: 108px;
+  font-weight: 400;
+  font-size: 28px;            /* exact match to Figma */
+  line-height: 1.45;          /* tweak if Figma shows different leading */
+  letter-spacing: 0;          /* ensure no extra tracking */
+  font-optical-sizing: none;  /* stop variable font auto-bulking at large sizes */
+  -webkit-font-smoothing: antialiased;   /* lighter on macOS */
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .hero-buttons {
@@ -219,45 +266,54 @@ p {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 2.5rem;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
+}
+
+.services p {
+  font-weight: 500;
+  font-style: medium;
+  font-size: 16px;
+  line-height: 30px;
+  font-optical-sizing: none;  /* stop variable font auto-bulking at large sizes */
+  -webkit-font-smoothing: antialiased;   /* lighter on macOS */
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .service-cards {
   display: flex;
-  gap: 40px;
-  justify-content: center;
+  gap: 42px;
+  justify-content: left;
   flex-wrap: wrap;
+  width: 1152px;
+  height: 514px;
 }
 
 .service-card {
   background: #fff;
   border: 4px solid #000;
-  border-radius: 20px;
-  padding: 40px 20px;
+  border-radius: 30px;
+  padding: 20px 12px;
   flex: 1;
-  max-width: 290px;
+  max-width: 356px;
   position: relative;
 }
 
 .service-card img {
-  height: 100px;
-  margin-bottom: 20px;
+  height: 200px;
+  margin-bottom: 10px;
+  
 }
 
 .service-card h3 {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  font-size: 1.6rem;
   margin-bottom: 15px;
   text-align: left;
 }
 
-.service-card p {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: left;
+.services p {
+  font-weight: 500;
+  font-style: medium;
+  font-size: 18px;
+  line-height: 30px;
 }
 
 /* Shadows to mimic side colour accent */
@@ -266,30 +322,32 @@ p {
 .service-card.red::after {
   content: "";
   position: absolute;
-  bottom: -10px;
-  right: -10px;
+  bottom: -15px;
+  right: -15px;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: 40px;
   z-index: -1;
 }
 
 .service-card.blue::after {
-  background: #3454D1; /* pick your exact blue */
+  background: #133DC1; /* pick your exact blue */
 }
 
 .service-card.yellow::after {
-  background: #F4C142; /* pick your exact yellow */
+  background: #FFBF00; /* pick your exact yellow */
 }
 
 .service-card.red::after {
-  background: #D33F49; /* pick your exact red */
+  background: #E62C31; /* pick your exact red */
 }
 
-.service-card img {
-  height: 150px;
-  margin-bottom: 20px;
-}
+
+
+.service-cards { justify-content: flex-start; justify-items: start; } /* flex + grid */
+.service-card { text-align: left; }
+.service-card img { display: block; margin: 0; }
+
 
 /* FEATURED WORK SECTION */
 .featured-work {
