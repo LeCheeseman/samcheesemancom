@@ -130,7 +130,7 @@ p {
   font-size: 62px;
   font-weight: 700;
   font-style: bold;
-  margin: 0 0 20px;
+  margin: 0 0 48px;
 }
 
 .hero h1 span {
@@ -151,6 +151,7 @@ p {
   font-optical-sizing: none;  /* stop variable font auto-bulking at large sizes */
   -webkit-font-smoothing: antialiased;   /* lighter on macOS */
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 .hero-buttons {
@@ -187,6 +188,10 @@ p {
 
 .hero-text {
   flex: 1.5;
+ 
+}
+.hero-p-container {
+  margin-bottom: 72px;
 }
 
 .hero-image {
@@ -215,7 +220,7 @@ p {
 
 .clients h2 {
   font-size: 2rem;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .client-logos {
