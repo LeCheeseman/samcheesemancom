@@ -1,17 +1,4 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer components {
-  .logo-header {
-    @apply h-12 md:h-16;
-  }
-  
-  .logo-footer {
-    @apply h-12;
-  }
-}
 
 body {
   margin: 0;
@@ -40,6 +27,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .nav-links {
@@ -59,9 +47,19 @@ p {
   transition: transform 0.1s, color 0.2s;
 }
 
-.logo { 
-    margin-left: -10px;
+.logo {
+  margin-left: -20px;
 }
+
+.navbar .logo a { display: block; line-height: 0; }
+
+.navbar .logo img {
+  width: 320px;   /* adjust to taste */
+  height: auto;
+  display: block;
+}
+
+
 
 .nav-links a:hover {
   color: #007bff;
@@ -92,7 +90,7 @@ p {
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 4.2rem;
   font-weight: 700;
   margin: 0 0 20px;
 }
@@ -610,11 +608,6 @@ p {
   max-width: 1400px;
 }
 
-.logo {
-  margin-left: 0;
-  padding-left: 0;
-}
-
 .nav-links {
   font-size: larger;
 }
@@ -942,3 +935,6 @@ footer {
     font-size: 1.6rem;
   }
 }
+
+/* DELETE ME */
+
