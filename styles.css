@@ -2,10 +2,17 @@
 
 body {
   margin: 0;
-  background-color: #FEF7E0; /* site-wide background */
-    font-family: 'DM sans', serif;
+  background: 
+    linear-gradient(
+      to bottom left,
+      rgba(19, 61, 193, 0.8), /* bump to 80% so you SEE it */
+      rgba(19, 61, 193, 0)
+    ),
+    #FEF7E0; /* yellow base */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'DM Sans', serif;
   color: #000;
-  position: relative; /* if using absolute shapes inside body */
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -547,64 +554,95 @@ p {
 /* === CONTAINER === */
 .rtb-container {
   display: flex;
-  max-width: 1200px;
+  max-width: 1440px;
+  height: 831.84px;
+  justify-content: space-between;
+  padding: 80px 144px 80px 144px;
   margin: 0 auto;
-  margin-top: 80px;
   gap: 60px;
   align-items: flex-start;
 }
 
 /* === LEFT === */
-.rtb-left {
-  flex: 0 0 40%;
+/* === RTB (Why You Can Count On Me) === */
+/* keep layout */
+.rtb-left { flex: 0 0 40%; position: relative; }
+
+/* kill the old full-yellow wrapper if present */
+.rtb-shadow { background: transparent; padding: 0; }
+
+/* card */
+.rtb-box{
   position: relative;
-}
-
-.rtb-shadow {
-  background: #F4C142;
+  width: 536px;
+  height: 594px;
+  padding: 42px;                  /* Figma */
+  box-sizing: border-box;
+  background: #FFF;
+  border: 4px solid #1B1B1B;
   border-radius: 20px;
-  padding: 20px;
+
+  /* stop DM Sans from “bulking up” */
+  font-optical-sizing: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.rtb-box {
-  background: #fff;
-  border: 4px solid #000;
-  border-radius: 20px;
-  padding: 60px;
+/* services-style accent: shows on RIGHT side and BOTTOM edge only */
+.rtb-box::after{
+  content:"";
+  position:absolute;
+  bottom:-14px;
+  right:-14px;
+  width:100%;
+  height:100%;
+  background:#F4C142;
+  border-radius:20px;
+  z-index:-1;
 }
 
-.rtb-box h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 40px;
+/* heading spacing inside card */
+.rtb-box h2{ margin: 0 0 24px; }
+
+/* list spacing & type */
+.rtb-box ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:32px;                       /* Figma gap */
 }
 
-.rtb-box ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.rtb-box li{
+  position:relative;
+  padding-left:40px;
+  font-weight:400;                /* Regular */
+  font-size:18px;                 /* Figma */
+  line-height:1.55;
+  color:#191A15;
+
+  /* match weight rendering */
+  font-optical-sizing: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.rtb-box li {
-  margin-bottom: 20px;
-  position: relative;
-  padding-left: 40px;
-}
-
-.rtb-box li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  background: #3454D1;
-  color: #fff;
-  text-align: center;
-  line-height: 24px;
-  border-radius: 50%;
-  font-size: 14px;
+/* blue check bullet */
+.rtb-box li::before{
+  content:"✔";
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:24px;
+  height:24px;
+  line-height:24px;
+  text-align:center;
+  background:#3454D1;
+  color:#FFF;
+  border-radius:50%;
+  font-size:14px;
 }
 
 /* === RIGHT === */
@@ -1084,3 +1122,51 @@ body{ font-family: system-ui, -apple-system, Segoe UI, Roboto, "DM Sans", Arial,
   .client-logos img.wiggle-cw,
   .client-logos img.wiggle-ccw { animation: none !important; }
 }
+
+/* BG OVERRIDE */
+:root{
+  /* existing colours */
+  --yellow-1: #FFF6DD;              /* navbar */
+  --yellow-2: #FEF8EA;              /* rest of page */
+  --blue-r: 189; --blue-g: 201; --blue-b: 238; /* #BDC9EE */
+
+  /* one control for strength */
+  --blue-peak-alpha: 0.65;          /* tweak this only */
+  --blue-shoulder-alpha: calc(var(--blue-peak-alpha) * 0.5);
+
+  /* these are set by your JS; keep as fallbacks */
+  --nav-end: 8%;
+  --hero-end: 28%;
+  --services-start: 40%;
+  --services-end: 55%;
+  --testimonials-end: 85%;
+}
+
+html{
+  min-height:100%;
+  background:
+    /* Blue overlay with variable strength */
+    linear-gradient(
+      to bottom,
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),0) 0%,
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),0) var(--services-start),
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),var(--blue-shoulder-alpha)) calc((var(--services-start) + var(--services-end)) / 2),
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),var(--blue-peak-alpha)) var(--services-end),
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),var(--blue-shoulder-alpha)) calc((var(--services-end) + var(--testimonials-end)) / 2),
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),0) var(--testimonials-end),
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),0) 100%
+    ),
+    /* Base yellow (nav → hero shift) */
+    linear-gradient(
+      to bottom,
+      var(--yellow-1) 0%,
+      var(--yellow-1) var(--nav-end),
+      var(--yellow-2) var(--hero-end),
+      var(--yellow-2) 100%
+    );
+  background-repeat:no-repeat,no-repeat;
+  background-attachment:scroll,scroll;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin:0; }

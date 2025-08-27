@@ -132,3 +132,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setTimeout(wiggleNext, 1000);
 });
+
+/* GRADIENT */
+
+(function(){
+  const sections = {
+    nav: '.navbar',
+    hero: '.hero',
+    services: '.services',
+    featured: '.featured-work',
+    testimonials: '.rtbs'
+  };
+
+  function pct(px){ 
+    const total = document.documentElement.scrollHeight || 1;
+    return Math.max(0, Math.min(100, (px / total) * 100));
+  }
+
+  function topPx(sel){
+    const el = document.querySelector(sel);
+    if(!el) return null;
+    const r = el.getBoundingClientRect();
+    return r.top + window.scrollY;
+  }
+  function bottomPx(sel){
+    const el = document.querySelector(sel);
+    if(!el) return null;
+    const r = el.getBoundingClientRect();
+    return r.bottom + window.scrollY;
+  }
+
+  function setStops(){
+    const root = document.documentElement;
+
+    const navEndPx  = bottomPx(ids.nav);
+    const heroEndPx = bottomPx(ids.hero);
+
+    const servicesStartPx = topPx(ids.services);
+    const servicesEndPx   = bottomPx(ids.services);
+
+    const testimonialsEndPx = bottomPx(ids.testimonials) 
+                           || bottomPx(ids.featured)
+                           || (document.documentElement.scrollHeight - 1);
+
+    if(navEndPx!=null)  root.style.setProperty('--nav-end', pct(navEndPx).toFixed(2)+'%');
+    if(heroEndPx!=null) root.style.setProperty('--hero-end', pct(heroEndPx).toFixed(2)+'%');
+
+    if(servicesStartPx!=null) root.style.setProperty('--services-start', pct(servicesStartPx).toFixed(2)+'%');
+    if(servicesEndPx!=null)   root.style.setProperty('--services-end',   pct(servicesEndPx).toFixed(2)+'%');
+    if(testimonialsEndPx!=null) root.style.setProperty('--testimonials-end', pct(testimonialsEndPx).toFixed(2)+'%');
+  }
+
+  function debounced(fn, wait){
+    let t; return function(){ clearTimeout(t); t=setTimeout(fn, wait); };
+  }
+
+  window.addEventListener('load', setStops);
+  window.addEventListener('resize', debounced(setStops, 150));
+})();
