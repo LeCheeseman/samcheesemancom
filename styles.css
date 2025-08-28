@@ -1,4 +1,5 @@
 
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -545,22 +546,21 @@ p {
 
 /* RTBs */
 
-/* === RTB SECTION === */
-/* === RTB CONTAINER === */
-
 /* === RTB Container === */
 
 
 /* === CONTAINER === */
-.rtb-container {
+.rtb-container{
   display: flex;
-  max-width: 1440px;
-  height: 831.84px;
-  justify-content: space-between;
-  padding: 80px 144px 80px 144px;
-  margin: 0 auto;
-  gap: 60px;
+  flex-wrap: nowrap;              /* stop dropping to a new line */
+  justify-content: flex-start;
   align-items: flex-start;
+  gap: 87px;                      /* your exact column gap */
+  max-width: 1280px;              /* ensure there’s room */
+  width: 100%;
+  margin: 0 auto;                 /* center in page */
+  box-sizing: border-box;
+  /* if the parent has padding, keep it small, e.g. padding: 0 24px; */
 }
 
 /* === LEFT === */
@@ -645,53 +645,81 @@ p {
   font-size:14px;
 }
 
-/* === RIGHT === */
-.rtb-right {
-  flex: 1;
+/* === RIGHT TESTIMONIALS === */
+
+/* ===== TESTIMONIALS (right column) ===== */
+/* ===== TESTIMONIALS (right column) ===== */
+.rtb-right{
+  width: 529px;
+  min-height: 671.85px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
-.rtb-right h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
- 
+.rtb-right h2{
+  font-weight: 700;
+  font-size: 44px;
+  margin: 0 0 24px;
+  color: #0B0C0D;
 }
 
-.testimonial {
+/* Card */
+.testimonial{
   position: relative;
-  background: #fff;
-  border: 4px solid #000;
-  margin-bottom: 40px;
-  max-width: 450px;
+  width: 403px;
+  height: 183px;
+  background: #FFFFFF;             /* white card */
+  border: 4px solid #000;          /* black outline */
+  margin: 0 0 40px 0;
+  z-index: 0;
+  isolation: isolate;              /* keeps slabs behind, never bleeding in */
 }
 
-.testimonial::after {
-  content: "";
+/* Top-right WHITE slab (same size, offset up/right) */
+
+/* Bottom-left WHITE slab (same size, offset down/left) */
+
+
+/* Inner yellow panel */
+.testimonial-inner{
   position: absolute;
-  bottom: -10px;
-  right: -10px;
-  width: 100%;
-  height: 100%;
-  background: #134D42;
-  z-index: -1;
+  top: 24px; left: 24px;
+  width: 355px; height: 135px;     /* 403-48 × 183-48 */
+  background: #FFD352;             /* yellow tile */
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.testimonial-inner {
-  background: #F4C142;
-  padding: 40px;
+/* Stars */
+.testimonial-inner .stars{
+  width: 142px;
+  height: 26px;
+  display: block;
 }
 
-.rtb-right .testimonial:nth-of-type(1) {
-  margin-left: 100px;
+/* Copy */
+.testimonial-inner p{
+  margin: 0;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.45;
+  color: #191A15;
 }
 
-.rtb-right .testimonial:nth-of-type(2) {
-  margin-left: 250px;
-}
+/* Stagger like mock */
+.rtb-right .testimonial:nth-of-type(1){ transform: translateX(40px); }
+.rtb-right .testimonial:nth-of-type(2){ transform: translateX(180px); }
+.rtb-right .testimonial:nth-of-type(3){ transform: translateX(40px); }
 
-.rtb-right .testimonial:nth-of-type(3) {
-  margin-left: 100px;
+/* Responsive */
+@media (max-width: 1024px){
+  .rtb-right{ width: 100%; }
+  .rtb-right .testimonial{ transform: none; max-width: 100%; }
 }
 
 /* Enhanced navbar styling */
@@ -792,218 +820,112 @@ p {
   line-height: 1.6;
 }
 
-/* Footer styling */
-footer {
-  background-color: #FEF7E0;
-  padding: 48px 0;
-  border-top: 1px solid #d1d5db;
+/* Footer styling *//* ===== Footer ===== */
+
+/* ===== Footer ===== */
+/* ===== Footer ===== */
+.footer {
+  background: #fdfaf5;                /* cream */
+  padding: 3rem 1rem;
+  border-top: 1px solid #e5e7eb;      /* gray-200 */
+  font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 .footer-container {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 1rem;
 }
 
-.footer-desktop {
-  display: none;
+/* Desktop row */
+.footer-desktop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 24px;                 /* add a little breathing room */
+  margin-bottom:2rem;
 }
 
-.footer-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+/* Logo column: lock a sensible column width, don’t let flex squeeze it */
+/* logo column must not shrink below the logo width */
+.footer-logo { flex: 0 0 211px; min-width: 211px; }
+.footer-logo a { display:block; line-height:0; }
+
+/* exact visual size, every time */
+.logo-footer-box{
+  display:block;
+  inline-size:211px;                 /* width */
+  block-size:72px;                   /* height */
+  background: url("images/Logo.svg") center / contain no-repeat;
 }
 
-.footer-logo-mobile,
-.footer-logo {
-  text-align: center;
+/* mobile size, if you have a mobile footer */
+@media (max-width: 767.98px){
+  .footer-logo { flex: 0 0 160px; min-width:160px; }
+  .logo-footer-box{
+    inline-size:160px;
+    block-size: calc(160px * 72 / 211); /* keep ratio */
+  }
 }
 
-.footer-logo img,
-.footer-logo-mobile img {
-  height: 64px;
-  width: auto;
+/* Newsletter should yield space first */
+.footer-newsletter{
+  flex: 1 1 360px;           /* can grow and shrink */
+  min-width: 280px;          /* don’t collapse comically on narrow pages */
+  margin: 0 2rem;
 }
 
-.footer-newsletter-mobile,
-.footer-newsletter {
-  max-width: 24rem;
-  margin: 0 auto;
-}
-
-.footer-newsletter form,
-.footer-newsletter-mobile form {
-  display: flex;
-}
-
-.footer-newsletter input,
-.footer-newsletter-mobile input {
-  flex: 1;
-  padding: 8px 16px;
-  border: 2px solid #1f2937;
-  border-radius: 9999px 0 0 9999px;
-  background: transparent;
-  font-family: 'DM Sans', sans-serif;
-  color: #1f2937;
-}
-
-.footer-newsletter input::placeholder,
-.footer-newsletter-mobile input::placeholder {
-  color: #6b7280;
-}
-
-.footer-newsletter button,
-.footer-newsletter-mobile button {
-  padding: 8px 16px;
-  background: #1f2937;
-  border: 2px solid #1f2937;
-  border-radius: 0 9999px 9999px 0;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.footer-newsletter button:hover,
-.footer-newsletter-mobile button:hover {
-  background: #374151;
-}
-
-.footer-newsletter svg,
-.footer-newsletter-mobile svg {
-  width: 20px;
-  height: 20px;
-}
-
-.footer-nav-mobile,
-.footer-nav {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-}
-
-.footer-nav a,
-.footer-nav-mobile a {
-  color: #1f2937;
+/* Nav is fixed-size; don’t let it push the logo smaller */
+.footer-nav{ flex: 0 0 auto; }
+.footer-link {
+  color: #111827;                     /* gray-900 */
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
+.footer-link:hover { color: #4b5563; }/* gray-600 */
 
-.footer-nav a:hover,
-.footer-nav-mobile a:hover {
-  color: #6b7280;
-}
+/* Mobile layout */
+.footer-mobile { display: block; }
+.footer-logo-center { text-align: center; }
+.footer-nav-mobile { justify-content: center; margin-top: 2rem; }
+.newsletter-input-mobile { font-size: 1.125rem; padding: 0.7rem 1.1rem; }
+.newsletter-button-mobile { padding: 0.7rem 1.25rem; }
+.newsletter-icon-mobile { width: 22px; height: 22px; }
 
+/* Bottom bar */
 .footer-bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: 32px;
-  border-top: 1px solid #d1d5db;
-  margin-top: 32px;
-  gap: 16px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 2rem;
+  gap: 1rem;
 }
-
 .footer-legal {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
+  gap: 1.5rem;
   font-size: 0.875rem;
 }
+.footer-legal-link { color: #4b5563; text-decoration: none; transition: color 0.2s ease; }
+.footer-legal-link:hover { color: #111827; }
+.footer-separator { color: #9ca3af; }
 
-.footer-legal a {
-  color: #6b7280;
-  text-decoration: none;
-  transition: color 0.2s;
-}
+/* Smaller copyright */
+.footer-copy { font-size: 12px; color: #4b5563; text-align: center; }
 
-.footer-legal a:hover {
-  color: #1f2937;
-}
-
-.footer-legal span {
-  color: #9ca3af;
-}
-
-.footer-copyright {
-  text-align: center;
-}
-
-.footer-copyright p {
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-/* Responsive styles */
+/* Desktop breakpoint */
 @media (min-width: 768px) {
-  .service-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-  
-  .testimonials-container {
-    gap: 32px;
-  }
-  
-  .why-count-card h2 {
-    font-size: 1.5rem;
-  }
-  
-  .why-count-card ul {
-    font-size: 1.125rem;
-  }
-  
-  .quotes-section h2 {
-    font-size: 1.5rem;
-  }
-  
-  .quote p {
-    font-size: 1.125rem;
-  }
-  
-  .footer-bottom {
-    flex-direction: row;
-    gap: 0;
-  }
-  
-  .footer-legal {
-    justify-content: flex-start;
-  }
-  
-  .footer-copyright {
-    text-align: right;
-  }
-  
-  .footer-desktop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 32px;
-  }
-  
-  .footer-mobile {
-    display: none;
-  }
-  
-  .footer-logo {
-    flex-shrink: 0;
-  }
-  
-  .footer-newsletter {
-    flex: 1;
-    max-width: 28rem;
-    margin: 0 32px;
-  }
-  
-  .footer-nav {
-    gap: 32px;
-  }
+  .footer-desktop { display: flex; }
+  .footer-mobile  { display: none; }
+  .footer-bottom  { flex-direction: row; align-items: center; gap: 0; }
+  .footer-copy    { text-align: right; }
+}
+
+/* Mobile logo size */
+@media (max-width: 767.98px){
+  .footer-logo .logo-footer { width: 160px; height: auto; }
 }
 
 @media (min-width: 1024px) {
@@ -1170,3 +1092,151 @@ html{
 }
 
 body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin:0; }
+
+
+
+
+/* 1) Lock the RTB box to the Figma height */
+.rtb-left .rtb-box{
+  height: 594px;            /* Figma: H 594 */
+  box-sizing: border-box;   /* keep padding/border inside 594 */
+}
+
+/* 2) Pull the testimonials up and tighten the heading gap */
+.rtb-right{
+  margin-top: -32px;        /* nudge the whole stack up; adjust -24 to -40 until it matches */
+}
+
+.rtb-right h2{
+  margin: 0 0 12px;         /* reduce gap under the heading (was larger) */
+  line-height: 1.05;
+}
+
+/* ================================
+   Contact CTA
+================================== */
+:root{
+  --cta-blue: #1033A2;        /* panel background */
+  --cta-ink: #0B0C0D;         /* borders/text */
+  --cta-paper: #FFFFFF;       /* inputs */
+  --cta-btn: #212529;         /* button */
+  --cta-slab: rgba(16, 51, 162, 0.18); /* offset slab shadow */
+}
+
+/* section shell */
+.contact-cta{
+  padding: 80px 24px 120px;
+  position: relative;
+}
+.contact-wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* card */
+.contact-card{
+  position: relative;
+  width: 656px;               /* spec */
+  height: 757px;              /* spec */
+  padding: 32px 32px 24px;
+  border-radius: 20px;
+  background: var(--cta-blue);
+  border: 3px solid var(--cta-ink);
+  color: var(--cta-paper);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+  isolation: isolate;
+}
+
+/* offset slab behind (bottom-right) */
+.contact-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(18px, 18px);
+  border-radius: 20px;
+  background: var(--cta-slab);
+  z-index: -1;
+}
+
+/* title */
+.contact-title{
+  margin: 4px 0 20px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.15;
+  color: var(--cta-paper);
+}
+
+/* fields */
+.field{ margin: 18px 0; }
+.field label{
+  display: block;
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.92);
+}
+.field input,
+.field textarea{
+  width: 100%;
+  background: var(--cta-paper);
+  border: 0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font: 400 16px/1.3 "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #222;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.08) inset,
+    0 1px 0 rgba(0,0,0,0.06);
+}
+.field input::placeholder,
+.field textarea::placeholder{
+  color: #C2C7D0;
+  letter-spacing: 0.5px;
+}
+
+/* actions */
+.actions{
+  margin-top: 16px;
+  text-align: center;
+}
+.btn-primary{
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  background: var(--cta-btn);   /* #212529 */
+  color: #fff;
+  border: 2px solid var(--cta-ink);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.25);
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+.btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 3px 0 rgba(0,0,0,0.25); }
+.btn-primary:active{ transform: translateY(0); box-shadow: 0 1px 0 rgba(0,0,0,0.25); filter: brightness(0.95); }
+
+.actions .alt{
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+.actions .alt a{
+  color: var(--cta-paper);
+  text-decoration: underline;
+}
+
+/* responsive */
+@media (max-width: 720px){
+  .contact-cta{ padding: 56px 16px 96px; }
+  .contact-card{
+    width: 100%;
+    height: auto;             /* let it grow on small screens */
+    padding: 28px 20px 20px;
+  }
+  .contact-title{ font-size: 28px; }
+}

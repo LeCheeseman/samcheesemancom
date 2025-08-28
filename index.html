@@ -164,7 +164,6 @@
 </div>
 </section>
 
-<section class="rtbs">
  <section class="rtbs">
   <div class="rtb-container">
     <div class="rtb-left">
@@ -182,22 +181,25 @@
     </div>
 
     <div class="rtb-right">
-      <h2>Nice things people are saying</h2>
-
+      <h3>Nice things people are saying</h2>
+    
       <div class="testimonial">
         <div class="testimonial-inner">
+          <img class="stars" src="images/stars.svg" alt="5 stars">
           <p>They’ve grown our presence across all channels seamlessly, always staying true to our brand’s voice and vision.</p>
         </div>
       </div>
-
+    
       <div class="testimonial">
         <div class="testimonial-inner">
+          <img class="stars" src="images/stars.svg" alt="5 stars">
           <p>From big ideas to tiny details, they manage everything flawlessly. Our launch was nothing short of spectacular!</p>
         </div>
       </div>
-
+    
       <div class="testimonial">
         <div class="testimonial-inner">
+          <img class="stars" src="images/stars.svg" alt="5 stars">
           <p>The copy they wrote wasn’t just words — it was a strategy that drove results.</p>
         </div>
       </div>
@@ -205,8 +207,150 @@
   </div>
 </section>
 
+<section class="contact-cta" id="contact">
+  <div class="contact-wrap">
+    <form class="contact-card" action="#" method="post" novalidate>
+      <h2 class="contact-title">Get started</h2>
+
+      <div class="field">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" placeholder="NAME" autocomplete="name" />
+      </div>
+
+      <div class="field">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" placeholder="EMAIL ADDRESS" autocomplete="email" />
+      </div>
+
+      <div class="field">
+        <label for="contact-subject">Subject</label>
+        <input id="contact-subject" name="subject" type="text" placeholder="SUBJECT" />
+      </div>
+
+      <div class="field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="5" placeholder="TELL ME ABOUT YOUR PROJECT"></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn-primary">Contact me</button>
+        <p class="alt">or <a href="#free-consultation">Free Consultation</a></p>
+      </div>
+    </form>
+  </div>
 </section>
 
+<!-- Footer --><!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Desktop Layout -->
+    <div class="footer-desktop">
+      
+      <!-- Logo -->
+      <div class="footer-logo">
+        <a href="/">
+          <!-- LOCKED: standard footer logo size -->
+          <img src="images/Logo.svg" alt="Sam Cheeseman Logo" class="logo-footer">
+          <!-- /LOCKED -->
+        </a>
+      </div>
+      
+      <!-- Newsletter Signup -->
+      <div class="footer-newsletter">
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input 
+            type="email" 
+            placeholder="Get your project launched" 
+            class="newsletter-input"
+            required
+            aria-label="Email address"
+            autocomplete="email"
+          >
+          <button 
+            type="submit" 
+            class="newsletter-button"
+            aria-label="Submit newsletter signup"
+          >
+            <svg class="newsletter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+      
+      <!-- Navigation Links -->
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/" class="footer-link">Home</a>
+        <a href="/portfolio.html" class="footer-link">Portfolio</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </nav>
+      
+    </div>
+    
+    <!-- Mobile Layout -->
+    <div class="footer-mobile">
+      
+      <!-- Logo -->
+      <div class="footer-logo footer-logo-center">
+        <a href="/">
+          <!-- LOCKED: standard footer logo size -->
+<!-- was: <img src="images/Logo.svg" alt="Sam Cheeseman Logo" class="logo-footer"> -->
+<span class="logo-footer-box" role="img" aria-label="Sam Cheeseman Logo"></span>          <!-- /LOCKED -->
+        </a>
+      </div>
+      
+      <!-- Newsletter Signup -->
+      <div class="footer-newsletter-mobile">
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input 
+            type="email" 
+            placeholder="Get your project launched" 
+            class="newsletter-input newsletter-input-mobile"
+            required
+            aria-label="Email address"
+            autocomplete="email"
+          >
+          <button 
+            type="submit" 
+            class="newsletter-button newsletter-button-mobile"
+            aria-label="Submit newsletter signup"
+          >
+            <svg class="newsletter-icon newsletter-icon-mobile" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+      
+      <!-- Navigation Links -->
+      <nav class="footer-nav footer-nav-mobile" aria-label="Footer">
+        <a href="/" class="footer-link">Home</a>
+        <a href="/portfolio.html" class="footer-link">Portfolio</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </nav>
+      
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      
+      <!-- Legal Links -->
+      <div class="footer-legal">
+        <a href="/terms" class="footer-legal-link">Terms and Conditions</a>
+        <span class="footer-separator">•</span>
+        <a href="/privacy" class="footer-legal-link">Privacy Policy</a>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="footer-copy">
+        <p>© 2025 Sam Cheeseman. Copyright and rights reserved</p>
+      </div>
+      
+    </div>
+    
+  </div>
+</footer>
 </body>
     <script src="script.js"></script>
 </html>
