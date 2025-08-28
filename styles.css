@@ -821,100 +821,76 @@ p {
 }
 
 /* Footer styling *//* ===== Footer ===== */
+/* ===== Footer (replaced) ===== *//* =======================
+   Footer
+   ======================= */
+/* Footer */
+.footer { background:#FEF7E0; border-top:1px solid #e5e7eb; margin-top:80px; }
+.footer__container { max-width:1200px; margin:0 auto; padding:48px 24px; }
 
-/* ===== Footer ===== */
-/* ===== Footer ===== */
-.footer {
-  background: #fdfaf5;                /* cream */
-  padding: 3rem 1rem;
-  border-top: 1px solid #e5e7eb;      /* gray-200 */
-  font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-.footer-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Desktop row */
-.footer-desktop{
+.footer__grid {
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap: 24px;                 /* add a little breathing room */
-  margin-bottom:2rem;
+  align-items:flex-start;
+  gap:64px;
+  margin-bottom:32px;
 }
 
-/* Logo column: lock a sensible column width, don’t let flex squeeze it */
-/* logo column must not shrink below the logo width */
-.footer-logo { flex: 0 0 211px; min-width: 211px; }
-.footer-logo a { display:block; line-height:0; }
+/* LEFT — 320 × 220 */
+.footer__left { flex:0 0 320px; min-height:220px; }
+.footer__logo { display:inline-block; height: 72px; width:211px;}
 
-/* exact visual size, every time */
-.logo-footer-box{
-  display:block;
-  inline-size:211px;                 /* width */
-  block-size:72px;                   /* height */
-  background: url("images/Logo.svg") center / contain no-repeat;
+.footer__cta {
+  margin:24px 0 16px;
+  font-size:24px;
+  line-height:1.25;
+  color:#6b7280;
 }
 
-/* mobile size, if you have a mobile footer */
-@media (max-width: 767.98px){
-  .footer-logo { flex: 0 0 160px; min-width:160px; }
-  .logo-footer-box{
-    inline-size:160px;
-    block-size: calc(160px * 72 / 211); /* keep ratio */
-  }
+/* Subscribe — 320 × 70, r=70 */
+.footer__subscribe {
+  width:320px; height:70px; border-radius:70px;
+  background:#fff; border:2px solid #000;
+  display:flex; align-items:center; gap:8px;
+  padding:0 8px 0 24px; box-sizing:border-box;
+}
+.footer__subscribe input {
+  flex:1; border:0; outline:0; background:transparent;
+  font-size:18px; color:#111827;
+}
+.footer__subscribe input::placeholder { color:#9ca3af; }
+.footer__subscribe button {
+  width:56px; height:56px; border-radius:50%;
+  border:2px solid #000; background:#133DC1;
+  display:grid; place-items:center; cursor:pointer;
+}
+.footer__subscribe button svg { width:24px; height:24px; stroke:#fff; stroke-width:2.5; }
+
+/* RIGHT — 328 × 250 */
+.footer__right { flex:0 0 328px; min-height:250px; display:flex; justify-content:flex-end; }
+.footer__nav { display:flex; flex-direction:column; gap:12px; align-items:flex-end; text-align:right; }
+.footer__nav a { text-decoration:none; font-size:24px; font-weight:600; color:#6b7280; }
+.footer__nav a.is-active { color:#0b0c0d; font-weight:700; }
+
+.footer__right a {
+  color: #676767;
+  font-size: 18px;
 }
 
-/* Newsletter should yield space first */
-.footer-newsletter{
-  flex: 1 1 360px;           /* can grow and shrink */
-  min-width: 280px;          /* don’t collapse comically on narrow pages */
-  margin: 0 2rem;
+/* Bottom row */
+.footer__bottom { display:flex; flex-direction:column; align-items:center; gap:12px; border-top:1px solid #e5e7eb; padding-top:24px; }
+.footer__legal { display:flex; gap:16px; font-size:14px; color:#4b5563; }
+.footer__legal a { color:inherit; text-decoration:none; }
+.footer__legal a:hover { text-decoration:underline; }
+.footer__copy { font-size:14px; color:#4b5563; }
+
+/* Responsive */
+@media (max-width: 900px){
+  .footer__grid { flex-direction:column; gap:32px; }
+  .footer__left, .footer__right { flex:0 0 auto; width:100%; min-height:auto; }
+  .footer__nav { align-items:flex-start; text-align:left; }
+  .footer__subscribe { width:100%; max-width:480px; }
 }
-
-/* Nav is fixed-size; don’t let it push the logo smaller */
-.footer-nav{ flex: 0 0 auto; }
-.footer-link {
-  color: #111827;                     /* gray-900 */
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.footer-link:hover { color: #4b5563; }/* gray-600 */
-
-/* Mobile layout */
-.footer-mobile { display: block; }
-.footer-logo-center { text-align: center; }
-.footer-nav-mobile { justify-content: center; margin-top: 2rem; }
-.newsletter-input-mobile { font-size: 1.125rem; padding: 0.7rem 1.1rem; }
-.newsletter-button-mobile { padding: 0.7rem 1.25rem; }
-.newsletter-icon-mobile { width: 22px; height: 22px; }
-
-/* Bottom bar */
-.footer-bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #e5e7eb;
-  padding-top: 2rem;
-  gap: 1rem;
-}
-.footer-legal {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.875rem;
-}
-.footer-legal-link { color: #4b5563; text-decoration: none; transition: color 0.2s ease; }
-.footer-legal-link:hover { color: #111827; }
-.footer-separator { color: #9ca3af; }
-
-/* Smaller copyright */
-.footer-copy { font-size: 12px; color: #4b5563; text-align: center; }
-
 /* Desktop breakpoint */
 @media (min-width: 768px) {
   .footer-desktop { display: flex; }
@@ -925,7 +901,7 @@ p {
 
 /* Mobile logo size */
 @media (max-width: 767.98px){
-  .footer-logo .logo-footer { width: 160px; height: auto; }
+  .footer-logo .logo-footer { width: 211px; height: auto; }
 }
 
 @media (min-width: 1024px) {
@@ -1225,18 +1201,7 @@ body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin
   font-size: 14px;
   color: rgba(255,255,255,0.8);
 }
-.actions .alt a{
-  color: var(--cta-paper);
-  text-decoration: underline;
-}
 
-/* responsive */
-@media (max-width: 720px){
-  .contact-cta{ padding: 56px 16px 96px; }
-  .contact-card{
-    width: 100%;
-    height: auto;             /* let it grow on small screens */
-    padding: 28px 20px 20px;
-  }
-  .contact-title{ font-size: 28px; }
+.rtb-right .testimonial:nth-of-type(3) {
+  margin-left: 100px;
 }
