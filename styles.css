@@ -21,27 +21,23 @@ h1, h2, h3, h4, h5, h6, p {
 }
 h1 { 
     font-weight: 700; 
-    font-style: bold;
     font-size: 62px;
 }
 
 h2 {
 
   font-weight: 700;
-  font-style: bold;
   font-size: 44px;
 
 }
 
 h3 {
   font-weight: 700;
-  font-style: bold;
   font-size: 28px
 }
 
 h4{
   font-family: 'DM Sans', sans-serif;
-  font-style: normal;             /* not 'regular' */
   font-weight: 400;
   font-size: 28px;
   line-height: 1.3;
@@ -55,31 +51,25 @@ h4{
 }
 
 p {
-     font-style: regular;
      font-weight: 400;
      font-size: 28px;
-;
-
-
-
 
 }
+
 
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .nav-links {
   display: flex;
   gap: 50px;
-  padding-right: 92px;
-  font-size: larger;
+padding-left: 280px;
 }
 
 .nav-links a {
@@ -141,15 +131,10 @@ p {
 }
 
 
-.hero-container {
-  position: relative;
-  z-index: 1; /* keep content above background */
-}
 
 .hero h1 {
   font-size: 62px;
   font-weight: 700;
-  font-style: bold;
   letter-spacing: -3.5px;
   line-height: 80.7px;
   font-optical-sizing: none;
@@ -210,6 +195,8 @@ p {
   align-items: center;
   gap: 10px; /* space between text & image */
   padding: 0 120px;
+    position: relative;
+  z-index: 1; /* keep content above background */
 }
 
 .hero-text {
@@ -303,7 +290,6 @@ p {
 
 .services p {
   font-weight: 500;
-  font-style: medium;
   font-size: 16px;
   line-height: 30px;
   font-optical-sizing: none;  /* stop variable font auto-bulking at large sizes */
@@ -343,7 +329,6 @@ p {
 
 .services p {
   font-weight: 500;
-  font-style: medium;
   font-size: 18px;
   line-height: 30px;
 }
@@ -745,24 +730,22 @@ p {
   padding: 0 80px;
 }
 
-.navbar-container {
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 1400px;
-}
-
-.hero-container,
 .clients-container {
   max-width: 1400px;
 }
 
 .nav-links {
-  font-size: larger;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .nav-links a {
   font-size: 1rem;
   font-weight: 500;
+  padding: 0px;
 }
 
 /* Services section */
