@@ -27,20 +27,22 @@
 </head>
 <body class="bg-cream font-dm-sans">
   <!-- Header -->
-  <header class="w-full pt-12">
+  <header class="w-full pt-8">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center justify-between py-6">
         <!-- Left Navigation Links -->
         <div class="flex items-center space-x-8">
           <a href="/portfolio.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Work</a>
-          <a href="/about.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">About</a>
+          <a href="/" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Home</a>
         </div>
         
         <!-- Centered Logo -->
         <div class="absolute left-1/2 transform -translate-x-1/2">
           <a href="/">
-            <img src="images/logo.svg" alt="Sam Cheeseman Logo">
+            <!-- LOCKED: standard header logo size -->
+            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-header">
+            <!-- /LOCKED -->
           </a>
         </div>
         
@@ -51,18 +53,20 @@
       </div>
       
       <!-- Mobile Navigation -->
-      <div class="md:hidden py-6">
+      <div class="md:hidden py-4">
         <!-- Logo -->
         <div class="text-center mb-4">
           <a href="/">
-            <img src="images/logo.svg" alt="Sam Cheeseman Logo">
+            <!-- LOCKED: standard header logo size -->
+            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-header">
+            <!-- /LOCKED -->
           </a>
         </div>
         
         <!-- Navigation Links -->
         <div class="flex justify-center space-x-8 mb-4">
           <a href="/portfolio.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Work</a>
-          <a href="/home.html" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Home</a>
+          <a href="/" class="text-gray-900 hover:text-gray-600 font-medium transition-colors duration-200">Home</a>
         </div>
         
         <!-- Contact Button -->
