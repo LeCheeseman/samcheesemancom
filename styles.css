@@ -93,13 +93,13 @@ p {
 }
 
 .logo {
-  margin-left: -20px;
+  margin-left: 100px;
 }
 
 .navbar .logo a { display: block; line-height: 0; }
 
 .navbar .logo img {
-  width: 320px;   /* adjust to taste */
+  width: 250px;   /* adjust to taste */
   height: auto;
   display: block;
 }
@@ -128,16 +128,33 @@ p {
   padding: 10px 80px;
   position: relative;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -80px;   /* extend upwards into the navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100% + 200px); /* extend 200px beyond hero bottom */
+  background: url("images/BG/hero_line_2.svg") no-repeat center top;
+  background-size: cover;
+  z-index: 0;
+}
+
 
 .hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 1; /* keep content above background */
 }
 
 .hero h1 {
   font-size: 62px;
   font-weight: 700;
   font-style: bold;
+  letter-spacing: -3.5px;
+  line-height: 80.7px;
+  font-optical-sizing: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0 0 48px;
 }
 
@@ -150,12 +167,12 @@ p {
 
 .hero p {
   font-family: 'DM Sans', sans-serif;
-  max-width: 546px;
+  max-width: 500px;
   max-height: 108px;
   font-weight: 400;
   font-size: 28px;            /* exact match to Figma */
   line-height: 1.45;          /* tweak if Figma shows different leading */
-  letter-spacing: 0;          /* ensure no extra tracking */
+  letter-spacing: -1px;          /* ensure no extra tracking */
   font-optical-sizing: none;  /* stop variable font auto-bulking at large sizes */
   -webkit-font-smoothing: antialiased;   /* lighter on macOS */
   -moz-osx-font-smoothing: grayscale;
@@ -191,7 +208,8 @@ p {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 60px; /* space between text & image */
+  gap: 10px; /* space between text & image */
+  padding: 0 120px;
 }
 
 .hero-text {
@@ -743,7 +761,7 @@ p {
 }
 
 .nav-links a {
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -943,9 +961,7 @@ p {
     padding: 20px 40px;
   }
   
-  .hero h1 {
-    font-size: 3rem;
-  }
+  
   
   .hero p {
     font-size: 1.6rem;
