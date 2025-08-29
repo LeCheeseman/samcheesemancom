@@ -177,18 +177,23 @@ text-decoration: none;
 
 .hero-buttons {
   display: flex;
-  gap: 20px;
+  gap: clamp(12px, 3vw, 20px);   /* fluid spacing between buttons */
+  flex-wrap: wrap;                /* allow wrap on very small screens */
 }
 
 .button {
   background: #F4C142;
-  color: #000; /* Black text for good contrast */
+  color: #000;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 30px;
+  font-weight: 700;
+  border-radius: 9999px; /* fully pill and future-proof */
   display: inline-block;
-  padding: 15px 30px;
   border: 2px solid #000;
+  line-height: 1; /* remove extra vertical growth */
+
+  /* Fluid sizing */
+  font-size: clamp(0.9rem, 2.8vw, 1rem);
+  padding: clamp(10px, 2.2vw, 15px) clamp(18px, 3.8vw, 30px);
 }
 
 .button.secondary {
@@ -857,6 +862,41 @@ font-size: clamp(0.95rem, 1.9vw, 1.125rem)
     max-width: 100%;
     overflow-x: hidden;
   }
+  /* === HERO: Option B (mobile) — image first, then text === */
+  .hero-container{
+    flex-direction: column-reverse;   /* put image first */
+    align-items: flex-start;          /* keep left-aligned text */
+    gap: 24px;                        /* breathing space */
+  }
+  .hero-image{ width: 100%; }
+  .hero-image img{
+    width: 100%;
+    max-width: 520px;                /* cap so it doesn’t dominate */
+    margin: 0 auto;                   /* centre the image block */
+    display: block;
+    border-radius: 20px;              /* keep the card feel */
+  }
+  .hero-text{ width: 100%; }
+  .hero h1{ max-width: 24ch; }
+  .hero p{ max-width: 34ch; }
+  .hero-buttons{ gap: 12px; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+  /* === HERO: Option D (tablet) — side-by-side, 60/40 split === */
+  .hero-container{
+    flex-direction: row;              /* two columns */
+    align-items: center;
+    gap: 24px;
+    padding: 0 var(--pad-tablet);
+  }
+  .hero-text{ flex: 0 0 60%; max-width: 60%; }
+  .hero-image{ flex: 0 0 40%; max-width: 40%; }
+  .hero-image img{
+    width: 100%;
+    max-width: 420px;                /* smaller than desktop */
+    margin: 0;                       /* align with grid */
+  }
 }
 
 /* FEATURED WORK */
@@ -1205,5 +1245,11 @@ body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin
     display: block;        /* full-width clickable row */
     text-align: center;    /* center text inside the dropdown */
     width: 100%;
+  }
+}
+@media (max-width: 360px){
+  .button {
+    font-size: clamp(0.85rem, 3.2vw, 0.95rem);
+    padding: clamp(8px, 2.4vw, 12px) clamp(14px, 3.6vw, 22px);
   }
 }
