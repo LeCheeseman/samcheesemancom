@@ -69,7 +69,7 @@ p {
 .nav-links {
   display: flex;
   gap: 50px;
-padding-left: 280px;
+padding-left: 250px;
 }
 
 .nav-links a {
@@ -272,8 +272,10 @@ padding-left: 280px;
 /* SERVICES SECTION */
 
 .services {
-  padding: 20px 40px;
+  padding: 60px 40px;    /* add top space so it never touches featured-work */
   text-align: center;
+  position: relative;
+  z-index: 1;            /* paint above any lingering positioned children from featured-work */
 }
 
 .services-container {
@@ -281,9 +283,9 @@ padding-left: 280px;
   margin: 0 auto;
 }
 
-.services h2 {
+.services-container h2 {
   font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 2.5rem;
   margin-bottom: 32px;
 }
@@ -368,11 +370,19 @@ padding-left: 280px;
 
 /* FEATURED WORK SECTION */
 .featured-work {
-    margin-top: 100px;
-  padding: 0;
+  margin-top: 100px;
+  padding: 40px 0 200px; /* extra bottom room so nothing clips the next section */
   background: transparent;
   text-align: center;
+  position: relative; /* establish stacking context */
+  isolation: isolate; /* keep internal z-index from leaking */
+  z-index: 0;
 }
+
+/* Featured Work internals: create breathing room */
+.carousel { margin-bottom: 24px; }
+.carousel-info { margin-top: 16px; margin-bottom: 32px; }
+.fw-feature { margin-bottom: 40px; }
 
 .featured-work h2 {
   font-family: 'DM Sans', sans-serif;
@@ -412,7 +422,7 @@ padding-left: 280px;
 
 .watch-button {
   position: absolute;
-  bottom: 120px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   background: #F4C142; /* match your earlier hero button */
@@ -467,7 +477,7 @@ padding-left: 280px;
   justify-content: center; /* ← this centres the whole info block horizontally */
   align-items: center;
   max-width: 1200px;
-  margin: -60px auto;
+  margin: 24px auto;
   padding: 0 40px;
   text-align: left; /* keep left so title lines don't centre */
 }
@@ -958,8 +968,6 @@ body{ font-family: system-ui, -apple-system, Segoe UI, Roboto, "DM Sans", Arial,
 .button.secondary{ background:transparent; }
 
 
-/* Featured Work */
-.featured-work{ padding: 40px 0 80px; }
 .fw-container{ max-width: var(--container); margin:0 auto; padding:0 var(--pad); }
 .fw-container h2{ font-weight:400; font-size:2.5rem; margin:80px 0 62px; }
 
@@ -975,7 +983,13 @@ body{ font-family: system-ui, -apple-system, Segoe UI, Roboto, "DM Sans", Arial,
 
 /* 3-up grid */
 .fw-grid{ display:grid; grid-template-columns:1fr; gap:24px; }
-.fw-card{ border:4px solid #000; border-radius:20px; padding:16px; background:#fff; }
+.fw-card { 
+  border: 4px solid #000; 
+  border-radius: 20px; 
+  padding: 16px; 
+  background:#fff; 
+  overflow: hidden;        /* ← add this */
+} 
 .fw-card .fw-media{ border:0; border-radius:12px; }
 .fw-card h4{ margin:12px 0 4px; font-weight:700; font-size:1.25rem; }
 .fw-card p{ margin:0 0 12px; }
@@ -986,7 +1000,7 @@ body{ font-family: system-ui, -apple-system, Segoe UI, Roboto, "DM Sans", Arial,
 
 @media (max-width: 1024px){
 :root{ --pad:40px; }
-.fw-feature{ grid-template-columns: 1fr; }
+.fw-feature{ grid-template-columns: 1fr; z-index: 0; }
 }
 @media (min-width:768px){
 .fw-grid{ grid-template-columns: repeat(3, 1fr); gap:32px; }
@@ -1219,4 +1233,51 @@ body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin
 
 .rtb-right .testimonial:nth-of-type(3) {
   margin-left: 100px;
+}
+
+/* === Featured Work Responsive Fixes === */
+@media (max-width: 900px){
+  /* remove overlap */
+  .carousel-info {
+    margin: 24px auto 32px;
+    padding: 0 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+
+  /* keep CTA button inside */
+  .watch-button {
+    bottom: 12px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+
+  /* stack featured case */
+  .fw-feature {
+    grid-template-columns: 1fr;  /* single column */
+    gap: 24px;
+  }
+
+  /* stack cards */
+  .fw-grid {
+    grid-template-columns: 1fr;  /* single column */
+    gap: 20px;
+  }
+
+  .featured-work {
+    margin-top: 40px;  /* ensure no overlap with next section */
+    padding-bottom: 160px;
+  }
+}
+
+/* optional: tidy for tablets */
+@media (max-width: 1200px){
+  .carousel-info {
+    margin: 0 auto 24px;
+  }
+  .fw-feature {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
 }
