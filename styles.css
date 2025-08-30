@@ -156,8 +156,7 @@ text-decoration: none;
 }
 
 .hero h1 span {
-  max-width: 546px;
-  max-height: 243px;
+ 
   display: block;
   line-height: 1.4;
 }
@@ -865,8 +864,19 @@ font-size: clamp(0.95rem, 1.9vw, 1.125rem)
   /* === HERO: Option B (mobile) — image first, then text === */
   .hero-container{
     flex-direction: column-reverse;   /* put image first */
-    align-items: flex-start;          /* keep left-aligned text */
+    align-items: center;              /* center content vertically */
     gap: 24px;                        /* breathing space */
+  }
+  .hero-text{ 
+    width: 100%;
+    text-align: center;        /* center headline + body copy */
+  }
+  .hero h1, .hero p{
+    margin-left: auto;         /* center blocks within container */
+    margin-right: auto;
+  }
+  .hero-buttons{
+    justify-content: center;   /* center the buttons row */
   }
   .hero-image{ width: 100%; }
   .hero-image img{
@@ -877,9 +887,23 @@ font-size: clamp(0.95rem, 1.9vw, 1.125rem)
     border-radius: 20px;              /* keep the card feel */
   }
   .hero-text{ width: 100%; }
-  .hero h1{ max-width: 24ch; }
+  .hero h1{
+    max-width: 24ch;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
   .hero p{ max-width: 34ch; }
   .hero-buttons{ gap: 12px; }
+
+  /* Center service cards on mobile */
+  .service-cards { 
+    justify-items: center;       /* center items within the grid */
+  }
+  .service-card {
+    width: min(100%, 356px);     /* cap to design width, shrink on small devices */
+    justify-self: center;        /* ensure each card sits in the middle */
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px){
