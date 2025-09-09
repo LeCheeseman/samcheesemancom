@@ -130,13 +130,14 @@ text-decoration: none;
   padding: 0;
   position: relative;
 }
+
 .hero::before {
   content: "";
   position: absolute;
-  top: -80px;   /* extend upwards into the navbar */
+  top: -80px;              /* extend upwards into the navbar */
   left: 0;
-  width: 100%;
-  height: calc(100% + 200px); /* extend 200px beyond hero bottom */
+  right: 0;
+  bottom: -240px;          /* extend 240px past the hero bottom */
   background: url("images/BG/hero_line_2.svg") no-repeat center top;
   background-size: cover;
   z-index: 0;
@@ -238,56 +239,27 @@ text-decoration: none;
 /* CLIENTS SECTION */
 
 .clients {
-  padding: 80px 40px;
-  text-align: center;
-}
-
-.clients-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.clients h2 {
-  font-size: 2rem;
-  margin-bottom: 80px;
-}
-
-.client-logos {
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  margin-bottom: 40px;
+  align-items: center;
+  text-align: center;
+  padding: 40px 0;
+  background: transparent;
 }
 
-.client-logos img {
-  max-height: 80px; /* Adjust logo size */
+.client-logos img{
+  padding: 40px;
+  max-width: 100%;
   height: auto;
 }
 
-.client-logos img.visa {
-  max-height: 30px; /* lower than the others */
-}
-
-.client-logos img.bbdo { 
-    max-height: 30px; /* lower than the others */
-}
-
-
-.client-logos img.standardchartered {
-    max-height: 50px;
-}
-
-.client-logos img.mercedes, img.ogilvy, img.hotwheels, img.natgeo {
-    max-height: 50px;
-}
-
-/* CLIENTS SECTION END */
 
 /* SERVICES SECTION */
 
 .services {
-  padding: 60px 40px;    /* add top space so it never touches featured-work */
+  padding: 0px 40px;    /* add top space so it never touches featured-work */
   text-align: center;
   position: relative;
   z-index: 1;            /* paint above any lingering positioned children from featured-work */
@@ -661,10 +633,6 @@ font-size: clamp(1.25rem, 3.5vw, 2rem);}
   padding: 0px;
 }
 
-.clients-container {
-  max-width: 1400px;
-}
-
 
 /* Services section */
 
@@ -965,50 +933,6 @@ font-size: clamp(0.95rem, 1.9vw, 1.125rem)
 .fw-grid{ grid-template-columns: repeat(3, 1fr); gap:32px; }
 }
 
-/* CLIENT LOGO ANIMATION */
-
-/* Clients: animated logos (2× pop) */
-.client-logos { overflow: visible; }
-
-.client-logos img {
-  opacity: 1;
-  transform: none;
-  transform-origin: center;
-  position: relative;
-  will-change: transform;
-  transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
-}
-
-/* active frames */
-.client-logos img.wiggle-cw {
-  z-index: 5;
-  animation: logoWiggleCW 900ms ease-in-out;
-}
-.client-logos img.wiggle-ccw {
-  z-index: 5;
-  animation: logoWiggleCCW 900ms ease-in-out;
-}
-
-@keyframes logoWiggleCW {
-  0%   { transform: none; }
-  35%  { transform: scale(2) rotate(4deg); }
-  65%  { transform: scale(2) rotate(8deg); }
-  100% { transform: none; }
-}
-@keyframes logoWiggleCCW {
-  0%   { transform: none; }
-  35%  { transform: scale(2) rotate(-4deg); }
-  65%  { transform: scale(2) rotate(-8deg); }
-  100% { transform: none; }
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .client-logos img { transition: none; }
-  .client-logos img.wiggle-cw,
-  .client-logos img.wiggle-ccw { animation: none !important; }
-}
-
 /* BG OVERRIDE */
 :root{
   /* existing colours */
@@ -1276,4 +1200,18 @@ body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin
     font-size: clamp(0.85rem, 3.2vw, 0.95rem);
     padding: clamp(8px, 2.4vw, 12px) clamp(14px, 3.6vw, 22px);
   }
+}
+
+
+
+
+
+
+
+/* Visa & BBDO — 20% smaller */
+.client-logos img[src*="visa" i],
+.client-logos img.visa,
+.client-logos img[src*="bbdo" i] {
+  transform: scale(0.8);
+  transform-origin: center;
 }
