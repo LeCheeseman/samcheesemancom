@@ -92,10 +92,11 @@ text-decoration: none;
   line-height: 2.2em;
   transition: transform 0.1s, color 0.2s;
   font-size: clamp(0.95rem, 2.2vw, 1rem);
+  margin-right: 15px;
 }
 
 .logo {
-  margin-left: 0;
+  margin-left: -10px;
 }
 
 .navbar .logo a { display: block; line-height: 0; }
@@ -449,8 +450,9 @@ font-size: clamp(1.25rem, 3.5vw, 2rem);}
 /* card */
 .rtb-box{
   position: relative;
-  width: 536px;
-  height: 594px;
+  width: 100%;
+  max-width: 536px;
+  height: auto;
   padding: 42px;                  /* Figma */
   box-sizing: border-box;
   background: #FFF;
@@ -933,6 +935,8 @@ font-size: clamp(0.95rem, 1.9vw, 1.125rem)
 .fw-grid{ grid-template-columns: repeat(3, 1fr); gap:32px; }
 }
 
+
+
 /* BG OVERRIDE */
 :root{
   /* existing colours */
@@ -986,8 +990,12 @@ body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin
 
 /* 1) Lock the RTB box to the Figma height */
 .rtb-left .rtb-box{
-  height: 594px;            /* Figma: H 594 */
-  box-sizing: border-box;   /* keep padding/border inside 594 */
+  min-height: 594px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px){
+  .rtb-left .rtb-box{ min-height: 0; }
 }
 
 /* 2) Pull the testimonials up and tighten the heading gap */
@@ -1206,12 +1214,3 @@ body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin
 
 
 
-
-
-/* Visa & BBDO — 20% smaller */
-.client-logos img[src*="visa" i],
-.client-logos img.visa,
-.client-logos img[src*="bbdo" i] {
-  transform: scale(0.8);
-  transform-origin: center;
-}
