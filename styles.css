@@ -17,6 +17,81 @@ body {
   position: relative;
 }
 
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.video-modal.is-visible {
+  display: flex;
+}
+
+.video-modal__dialog {
+  position: relative;
+  width: min(90vw, 960px);
+}
+
+.video-modal__frame {
+  position: relative;
+  padding-top: 56.25%;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.video-modal__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.video-modal__close svg {
+  width: 28px;
+  height: 28px;
+}
+
+.video-modal__close:hover,
+.video-modal__close:focus {
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  .video-modal {
+    padding: 16px;
+  }
+
+  .video-modal__close {
+    top: -40px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'DM Sans', sans-serif;
 }
@@ -403,6 +478,15 @@ font-size: clamp(1.25rem, 3.5vw, 2rem);}
   color: #555;
 }
 
+.video-trigger {
+  cursor: pointer;
+}
+
+.video-trigger:focus {
+  outline: 2px solid #3454D1;
+  outline-offset: 4px;
+}
+
 
 .title-block p {
   margin: 5px 0 0;
@@ -569,11 +653,27 @@ font-size: clamp(1.25rem, 3.5vw, 2rem);}
 /* Copy */
 .testimonial-inner p{
   margin: 0;
+  line-height: 1.45;
+}
+
+.testimonial-quote{
   font-size: clamp(1rem, 2.2vw, 1.125rem);
   font-style: italic;
-  font-weight: 300;
-  line-height: 1.45;
+  font-weight: 500;
   color: #191A15;
+}
+
+.testimonial-name{
+  font-style: normal;
+  font-weight: 400;
+  color: #5c677d;
+}
+
+.testimonial-role{
+  font-style: normal;
+  font-weight: 400;
+  color: #5c677d;
+  font-size: 0.95rem;
 }
 
 /* Stagger like mock */
@@ -1195,8 +1295,3 @@ body,.site,.wrapper,main,#app,#__next{ background:transparent !important; margin
     padding: clamp(8px, 2.4vw, 12px) clamp(14px, 3.6vw, 22px);
   }
 }
-
-
-
-
-
