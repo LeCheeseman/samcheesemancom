@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;400;500;700&family=DM+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Portfolio - Sam Cheeseman</title>
     <script>
         tailwind.config = {
@@ -41,7 +42,7 @@
         <div class="absolute left-1/2 transform -translate-x-1/2">
           <a href="/">
             <!-- LOCKED: standard header logo size -->
-            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-header">
+            <img src="images/Logo.svg" alt="Sam Cheeseman Logo" class="logo-header">
             <!-- /LOCKED -->
           </a>
         </div>
@@ -88,18 +89,7 @@
         A showcase of our finest creations—where creativity meets impact. From bold branding to immersive digital experiences, each project reflects our passion for design and innovation. Explore how we bring ideas to life through thoughtful execution and striking visuals.
       </p>
       
-      <!-- Toggle Switch -->
-      <div class="flex items-center justify-center space-x-4">
-        <span class="text-gray-700 font-medium">Commercials</span>
-        
-        <!-- Toggle Switch Component -->
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input type="checkbox" value="" class="sr-only peer" id="workToggle">
-          <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-gray-800"></div>
-        </label>
-        
-        <span class="text-gray-700 font-medium">Copywriting</span>
-      </div>
+      <!-- Toggle switch removed for now -->
     </div>
     
     <!-- Portfolio Grid -->
@@ -176,7 +166,7 @@
         </div>
       </article>
 
-      <article class="relative aspect-video overflow-hidden rounded-2xl bg-gray-200 shadow-lg group cursor-pointer" data-video-src="https://player.vimeo.com/video/229376588?fl=pl&fe=vl" aria-label="Play Megabloks – Build Them Up project video" role="button" tabindex="0">
+      <article class="relative aspect-video overflow-hidden rounded-2xl bg-gray-200 shadow-lg group cursor-pointer" data-video-src='["https://player.vimeo.com/video/229376588?fl=pl&amp;fe=vl&amp;autoplay=1","https://www.youtube-nocookie.com/embed/kGGwtXN9oH8?autoplay=1&amp;rel=0"]' aria-label="Play Megabloks – Build Them Up project video" role="button" tabindex="0">
         <img src="images/portfolio/megabloks-buildthemup.jpg" alt="Megabloks Build Them Up project thumbnail" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-300"></div>
         <div class="absolute inset-x-0 bottom-0 p-6">
@@ -185,7 +175,7 @@
         </div>
       </article>
 
-      <article class="relative aspect-video overflow-hidden rounded-2xl bg-gray-200 shadow-lg group cursor-pointer" data-video-src="https://player.vimeo.com/video/273322257" aria-label="Play Hot Wheels project video" role="button" tabindex="0">
+      <article class="relative aspect-video overflow-hidden rounded-2xl bg-gray-200 shadow-lg group cursor-pointer" data-video-src='["https://player.vimeo.com/video/273322257?autoplay=1","https://player.vimeo.com/video/273322448?autoplay=1"]' aria-label="Play Hot Wheels project video" role="button" tabindex="0">
         <img src="images/portfolio/hotwheels-kv2.jpg" alt="Hot Wheels project thumbnail" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-300"></div>
         <div class="absolute inset-x-0 bottom-0 p-6">
@@ -233,16 +223,27 @@
   </main>
 
   <!-- Video Modal -->
-  <div id="portfolioVideoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4" aria-hidden="true">
-    <div class="relative w-full max-w-4xl">
-      <button type="button" id="portfolioVideoClose" class="absolute right-0 -top-12 text-white transition-opacity hover:opacity-80" aria-label="Close video">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <div id="portfolioVideoModal" class="video-modal" aria-hidden="true">
+    <div class="video-modal__dialog" role="dialog" aria-modal="true">
+      <button type="button" id="portfolioVideoClose" class="video-modal__close" aria-label="Close video">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
-      <div class="relative w-full overflow-hidden rounded-2xl bg-black aspect-video">
+      <button type="button" id="portfolioVideoPrev" class="video-modal__arrow video-modal__arrow--prev" aria-label="Previous video" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <button type="button" id="portfolioVideoNext" class="video-modal__arrow video-modal__arrow--next" aria-label="Next video" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <div class="video-modal__frame">
         <iframe id="portfolioVideoFrame" class="h-full w-full" src="" title="Portfolio video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
+      <div class="video-modal__counter" id="portfolioVideoCounter" aria-live="polite"></div>
     </div>
   </div>
 
@@ -437,18 +438,76 @@
         const videoModal = document.getElementById('portfolioVideoModal');
         const videoFrame = document.getElementById('portfolioVideoFrame');
         const videoClose = document.getElementById('portfolioVideoClose');
+        const videoPrev = document.getElementById('portfolioVideoPrev');
+        const videoNext = document.getElementById('portfolioVideoNext');
+        const videoCounter = document.getElementById('portfolioVideoCounter');
         const videoTriggers = document.querySelectorAll('[data-video-src]');
         let lastFocusedElement = null;
+        let videoPlaylist = [];
+        let currentVideoIndex = 0;
 
-        function openVideoModal(src) {
-            if (!videoModal || !videoFrame) {
+        if (!videoModal || !videoFrame || !videoTriggers.length) {
+            return;
+        }
+
+        function parseSources(raw) {
+            if (!raw) return [];
+            const trimmed = raw.trim();
+            if (trimmed.startsWith('[')) {
+                try {
+                    const parsed = JSON.parse(trimmed);
+                    return Array.isArray(parsed) ? parsed.map(normalizeUrl) : [];
+                } catch (error) {
+                    console.warn('Could not parse video source list', error);
+                    return [];
+                }
+            }
+            if (trimmed.includes('|')) {
+                return trimmed.split('|').map(part => normalizeUrl(part.trim())).filter(Boolean);
+            }
+            if (trimmed.includes(',')) {
+                return trimmed.split(',').map(part => normalizeUrl(part.trim())).filter(Boolean);
+            }
+            return [normalizeUrl(trimmed)];
+        }
+
+        function updateControls() {
+            const multi = videoPlaylist.length > 1;
+            if (videoPrev) {
+                videoPrev.hidden = !multi;
+                videoPrev.disabled = currentVideoIndex === 0;
+            }
+            if (videoNext) {
+                videoNext.hidden = !multi;
+                videoNext.disabled = currentVideoIndex === videoPlaylist.length - 1;
+            }
+            if (videoCounter) {
+                videoCounter.textContent = multi ? `${currentVideoIndex + 1} / ${videoPlaylist.length}` : '';
+            }
+        }
+
+        function setVideo(index) {
+            if (!videoPlaylist.length) {
                 return;
             }
+            currentVideoIndex = index;
+            videoFrame.src = videoPlaylist[currentVideoIndex];
+            updateControls();
+        }
 
+        function normalizeUrl(url) {
+            if (!url) return '';
+            return url.replace(/&amp;/g, '&').replace(/\s+/g, '');
+        }
+
+        function openVideoModal(rawSources) {
             lastFocusedElement = document.activeElement;
-            videoFrame.src = src;
-            videoModal.classList.remove('hidden');
-            videoModal.classList.add('flex');
+            videoPlaylist = parseSources(rawSources);
+            if (!videoPlaylist.length) {
+                return;
+            }
+            setVideo(0);
+            videoModal.classList.add('is-visible');
             videoModal.setAttribute('aria-hidden', 'false');
             document.body.classList.add('overflow-hidden');
 
@@ -458,15 +517,13 @@
         }
 
         function closeVideoModal() {
-            if (!videoModal || !videoFrame) {
-                return;
-            }
-
-            videoModal.classList.add('hidden');
-            videoModal.classList.remove('flex');
+            videoModal.classList.remove('is-visible');
             videoModal.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('overflow-hidden');
             videoFrame.src = '';
+            videoPlaylist = [];
+            currentVideoIndex = 0;
+            updateControls();
 
             if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
                 lastFocusedElement.focus();
@@ -480,7 +537,12 @@
                 return;
             }
 
-            const activate = () => openVideoModal(videoSrc);
+            const activate = (event) => {
+                if (event) {
+                    event.preventDefault();
+                }
+                openVideoModal(videoSrc);
+            };
 
             trigger.addEventListener('click', activate);
             trigger.addEventListener('keydown', function(event) {
@@ -491,21 +553,48 @@
             });
         });
 
-        if (videoModal) {
-            videoModal.addEventListener('click', function(event) {
-                if (event.target === videoModal) {
-                    closeVideoModal();
-                }
-            });
-        }
+        videoModal.addEventListener('click', function(event) {
+            if (event.target === videoModal) {
+                closeVideoModal();
+            }
+        });
 
-        if (videoClose) {
-            videoClose.addEventListener('click', closeVideoModal);
-        }
+        videoClose?.addEventListener('click', closeVideoModal);
+
+        videoPrev?.addEventListener('click', function() {
+            if (currentVideoIndex > 0) {
+                setVideo(currentVideoIndex - 1);
+            }
+        });
+
+        videoNext?.addEventListener('click', function() {
+            if (currentVideoIndex < videoPlaylist.length - 1) {
+                setVideo(currentVideoIndex + 1);
+            }
+        });
 
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && videoModal && !videoModal.classList.contains('hidden')) {
+            if (!videoModal.classList.contains('is-visible')) {
+                return;
+            }
+
+            if (event.key === 'Escape') {
                 closeVideoModal();
+                return;
+            }
+
+            if (videoPlaylist.length <= 1) {
+                return;
+            }
+
+            if (event.key === 'ArrowLeft' && currentVideoIndex > 0) {
+                event.preventDefault();
+                setVideo(currentVideoIndex - 1);
+            }
+
+            if (event.key === 'ArrowRight' && currentVideoIndex < videoPlaylist.length - 1) {
+                event.preventDefault();
+                setVideo(currentVideoIndex + 1);
             }
         });
     });
