@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;400;500;700&family=DM+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Contact - Sam Cheeseman</title>
     <script>
@@ -41,7 +42,7 @@
         <div class="absolute left-1/2 transform -translate-x-1/2">
           <a href="/">
             <!-- LOCKED: standard header logo size -->
-            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-header">
+            <img src="images/Logo.svg" alt="Sam Cheeseman Logo" class="logo-header">
             <!-- /LOCKED -->
           </a>
         </div>
@@ -58,7 +59,7 @@
         <div class="text-center mb-4">
           <a href="/">
             <!-- LOCKED: standard header logo size -->
-            <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="logo-header">
+            <img src="images/Logo.svg" alt="Sam Cheeseman Logo" class="logo-header">
             <!-- /LOCKED -->
           </a>
         </div>
@@ -127,7 +128,10 @@
           
           <!-- Right Column: Contact Form -->
           <div>
-            <form id="contactForm" class="space-y-6">
+            <form id="contactForm" class="space-y-6" action="/contact.php" method="POST" novalidate>
+              <input type="hidden" name="form" value="contact">
+              <input type="hidden" name="_next" value="/contact.html?sent=1">
+              <input type="text" name="_honey" style="display:none">
               
               <!-- Name Field -->
               <div>
@@ -218,7 +222,7 @@
           <!-- Logo -->
           <div class="flex-shrink-0">
             <a href="/">
-              <img src="images/logo.svg" alt="Sam Cheeseman Logo">
+              <img src="images/Logo.svg" alt="Sam Cheeseman Logo">
             </a>
           </div>
           
@@ -293,7 +297,7 @@
           <!-- Logo -->
           <div>
             <a href="/">
-              <img src="images/logo.svg" alt="Sam Cheeseman Logo" class="mx-auto">
+              <img src="images/Logo.svg" alt="Sam Cheeseman Logo" class="mx-auto">
             </a>
           </div>
           
@@ -383,7 +387,7 @@
         const contactForm = document.getElementById('contactForm');
         
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 // Get form data
@@ -421,14 +425,17 @@
                 }
                 
                 if (isValid) {
-                    // Here you would typically send the form data to your backend
-                    console.log('Contact form submitted:', { name, email, company, message });
-                    alert('Thank you for your message! I\'ll get back to you soon.');
-                    
-                    // Reset form
-                    this.reset();
-                } else {
-                    alert('Please fill in all required fields correctly.');
+                  try {
+                    await fetch('/contact.php', {
+                      method: 'POST',
+                      body: new FormData(contactForm),
+                      headers: { 'X-Requested-With': 'fetch' }
+                    });
+                    alert('Thanks, your message has been sent successfully.');
+                    contactForm.reset();
+                  } catch (err) {
+                    alert('Sorry, there was a problem sending your message. Please try again.');
+                  }
                 }
             });
             

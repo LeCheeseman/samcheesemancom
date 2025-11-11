@@ -41,11 +41,11 @@
       <h1>
   <span>Big Ideas.</span>
   <span>Sharp Copy.</span>
-  <span>Killer Scripts.</span>
+  <span>Killer Surname.</span>
 </h1>
 </h1>
 <div class="hero-p-container">
-<p>Hi, I'm Sam Cheeseman. I'm a Freelance Creative Director, Copywriter and Creative Strategist. I also play the spoons.</p>
+<p>Hi, I'm Sam Cheeseman. I'm a Freelance Creative Director, Copywriter and Brand Builder.</p>
 </div>      
 <div class="hero-buttons">
   <a href="#contact" class="button">Contact Me</a>
@@ -62,7 +62,7 @@
   <div class="clients-container">
     <h2>Trusted by</h2>
 <div class="client-logos">
-  <img src="images/logo-combo/logo-combo5.png" alt="Client Logos, inc. Visa, BBDO, NatGeo, Infiniti, Barbie, SCB" width="1600" height="500" decoding="async" loading="lazy">
+  <img src="images/logo-combo/logo-combo5.png" alt="Client logos including Visa, BBDO, NatGeo, Infiniti, Barbie, SCB" decoding="async" loading="lazy">
       <!-- Add more as needed -->
     </div>
   </div>
@@ -71,22 +71,22 @@
    <section class="services">
   <div class="services-container">
     <h2>What I do</h2>
-    <h4>I create campaigns, shape ideas and sharpen scripts for the world's biggest brands and agencies. I'm the guy they bring in when something needs thinking through, writing down or shaping up.</h4>
+    <h4>I create campaigns, shape ideas and sharpen scripts for the world's biggest brands and agencies. I'm the guy you bring in when something needs thinking through, writing down or shaping up.</h4>
     <div class="service-cards">
       <div class="service-card blue">
         <img src="images/carousel illustrations/icon_1.svg" alt="Product Launch Illustration">
         <h3>Campaigns & Concepts</h3>
-        <p>Coming from a 4A creative leadership background, I craft killer, sellable concepts that clients love.</p>
+        <p>I honed my campaign fundamentals in 4A agencies, and I've got a proven track record of creating  killer, sellable concepts that big clients love.</p>
       </div>
       <div class="service-card yellow">
         <img src="images/carousel illustrations/icon_2.svg" alt="Omni-Channel Growth Illustration">
         <h3>Scripts & Content</h3>
-        <p>I've managed the regional social channels for brands such as Visa, AIA and Mercedes-Benz. And I'm a specialist scriptwriter who has written for... almost everyone.</p>
+        <p>I've managed the regional social channels for brands such as Visa, AIA and Mercedes-Benz. And I'm a specialist scriptwriter who writes for the world's biggest brands.</p>
       </div>
       <div class="service-card red">
         <img src="images/carousel illustrations/icon_3.svg" alt="Brand Audit Illustration">
         <h3>Brand Consultancy</h3>
-        <p>I help entrepreneurs to define their brand, find their tone of voice and develop killer marketing strategies.</p>
+        <p>I help brands and entrepreneurs to refine their organisation's identity, define their tone of voice and develop killer marketing hooks.</p>
       </div>
     </div>
   
@@ -199,17 +199,20 @@
 
 <section class="contact-cta" id="contact">
   <div class="contact-wrap">
-    <form class="contact-card" action="#" method="post" novalidate>
+    <form class="contact-card" action="/contact.php" method="POST" novalidate>
+      <input type="hidden" name="form" value="contact">
+      <input type="hidden" name="_next" value="/contact.html?sent=1">
+      <input type="text" name="_honey" style="display:none">
       <h2 class="contact-title">Get started</h2>
 
       <div class="field">
         <label for="contact-name">Name</label>
-        <input id="contact-name" name="name" type="text" placeholder="NAME" autocomplete="name" />
+        <input id="contact-name" name="name" type="text" placeholder="NAME" autocomplete="name" required />
       </div>
 
       <div class="field">
         <label for="contact-email">Email</label>
-        <input id="contact-email" name="email" type="email" placeholder="EMAIL ADDRESS" autocomplete="email" />
+        <input id="contact-email" name="email" type="email" placeholder="EMAIL ADDRESS" autocomplete="email" required />
       </div>
 
       <div class="field">
@@ -219,14 +222,22 @@
 
       <div class="field">
         <label for="contact-message">Message</label>
-        <textarea id="contact-message" name="message" rows="5" placeholder="TELL ME ABOUT YOUR PROJECT"></textarea>
+        <textarea id="contact-message" name="message" rows="5" placeholder="TELL ME ABOUT YOUR PROJECT" required></textarea>
       </div>
 
       <div class="actions">
-        <button type="submit" class="btn-primary">Contact me</button>
-        <p class="alt">or <a href="#free-consultation">Free Consultation</a></p>
+        <button type="submit" class="btn-primary">Submit</button>
       </div>
     </form>
+    <script>
+    document.querySelectorAll('form.contact-card').forEach(form => {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Thanks, your message has been sent successfully.');
+        form.reset();
+      });
+    });
+    </script>
   </div>
   <footer class="footer">
     <div class="footer__container">
@@ -240,14 +251,17 @@
   
           <p class="footer__cta">Get your project launched</p>
   
-          <form class="footer__subscribe" action="#" method="post" novalidate>
+          <form class="footer__subscribe" action="/contact.php" method="POST" novalidate>
             <input
               type="email"
+              name="email"
               placeholder="Enter your email here"
               aria-label="Email address"
               autocomplete="email"
               required
             />
+            <input type="hidden" name="form" value="subscribe">
+            <input type="text" name="_honey" style="display:none">
             <button type="submit" aria-label="Submit email">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

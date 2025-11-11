@@ -233,6 +233,12 @@ text-decoration: none;
   display: block;
 }
 
+.logo-header {
+  width: clamp(160px, 20vw, 211px);
+  height: auto;
+  display: block;
+}
+
 
 
 .nav-links a:hover {
